@@ -1,4 +1,5 @@
 ﻿using Shashlik.EventBus;
+using Shashlik.EventBus.Abstractions;
 
 namespace CommonTestLogical.TestEvents
 {

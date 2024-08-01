@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Shashlik.EventBus;
+using Shashlik.EventBus.Abstractions;
 
 namespace CommonTestLogical.MsgWithoutLosing
 {

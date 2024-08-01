@@ -4,15 +4,15 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SampleBase;
 using Shashlik.EventBus;
-using Shashlik.EventBus.RabbitMQ;
-using Shashlik.EventBus.SqlServer;
+using Shashlik.EventBus.Abstractions;
+using Shashlik.EventBus.Storage.RabbitMQ;
+using Shashlik.EventBus.Storage.SqlServer;
 using Shashlik.Utils.Extensions;
 
 namespace Sample.Rabbit.SqlServer

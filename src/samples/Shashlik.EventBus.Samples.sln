@@ -21,21 +21,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus", "..\Sha
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BDD30104-8F77-451E-8A0B-CE431F1F8328}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Abstract", "..\Shashlik.EventBus.Abstract\Shashlik.EventBus.Abstract.csproj", "{21522DB7-86FE-402B-8CB4-6A68CA03D25D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Abstractions", "..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj", "{21522DB7-86FE-402B-8CB4-6A68CA03D25D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Kafka", "..\Shashlik.EventBus.Kafka\Shashlik.EventBus.Kafka.csproj", "{5F233A6C-3F0C-4E9C-B4F1-0DC46BF2EDD4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.Kafka", "..\Shashlik.EventBus.Storage.Kafka\Shashlik.EventBus.Storage.Kafka.csproj", "{5F233A6C-3F0C-4E9C-B4F1-0DC46BF2EDD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MemoryQueue", "..\Shashlik.EventBus.MemoryQueue\Shashlik.EventBus.MemoryQueue.csproj", "{05E6905C-0BA9-47A5-A985-B3D29D090082}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.MemoryQueue", "..\Shashlik.EventBus.Storage.MemoryQueue\Shashlik.EventBus.Storage.MemoryQueue.csproj", "{05E6905C-0BA9-47A5-A985-B3D29D090082}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MemoryStorage", "..\Shashlik.EventBus.MemoryStorage\Shashlik.EventBus.MemoryStorage.csproj", "{824F457C-DC45-4196-9C85-33582A70EC0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.MemoryStorage", "..\Shashlik.EventBus.Storage.MemoryStorage\Shashlik.EventBus.Storage.MemoryStorage.csproj", "{824F457C-DC45-4196-9C85-33582A70EC0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MySql", "..\Shashlik.EventBus.MySql\Shashlik.EventBus.MySql.csproj", "{8F9230F5-6984-4F73-AA2E-DEB2B14850AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.MySql", "..\Shashlik.EventBus.Storage.MySql\Shashlik.EventBus.Storage.MySql.csproj", "{8F9230F5-6984-4F73-AA2E-DEB2B14850AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.PostgreSQL", "..\Shashlik.EventBus.PostgreSQL\Shashlik.EventBus.PostgreSQL.csproj", "{4EDFC35F-E1FB-4095-ABD4-89A74E618891}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.PostgreSQL", "..\Shashlik.EventBus.Storage.PostgreSQL\Shashlik.EventBus.Storage.PostgreSQL.csproj", "{4EDFC35F-E1FB-4095-ABD4-89A74E618891}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.RabbitMQ", "..\Shashlik.EventBus.RabbitMQ\Shashlik.EventBus.RabbitMQ.csproj", "{203A3D4A-08D4-4802-95E5-9E7A449EA559}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.RabbitMQ", "..\Shashlik.EventBus.Storage.RabbitMQ\Shashlik.EventBus.Storage.RabbitMQ.csproj", "{203A3D4A-08D4-4802-95E5-9E7A449EA559}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.SqlServer", "..\Shashlik.EventBus.SqlServer\Shashlik.EventBus.SqlServer.csproj", "{2F616BC0-ACC0-46F0-861E-E685B16CD949}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.SqlServer", "..\Shashlik.EventBus.Storage.SqlServer\Shashlik.EventBus.Storage.SqlServer.csproj", "{2F616BC0-ACC0-46F0-861E-E685B16CD949}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.RelationDbStorage", "..\Shashlik.EventBus.RelationDbStorage\Shashlik.EventBus.RelationDbStorage.csproj", "{2087F79E-9F97-4C05-8F3F-460859B500A6}"
 EndProject
@@ -47,17 +47,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Dashboard
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Redis.Mysql", "Sample.Redis.Mysql\Sample.Redis.Mysql.csproj", "{78D2BFC0-FB98-4063-9460-B3E78EEE9982}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Redis", "..\Shashlik.EventBus.Redis\Shashlik.EventBus.Redis.csproj", "{4F6C11DB-42FD-4C10-B5B5-FBB16514E9D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.Redis", "..\Shashlik.EventBus.Storage.Redis\Shashlik.EventBus.Storage.Redis.csproj", "{4F6C11DB-42FD-4C10-B5B5-FBB16514E9D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MongoDb", "..\Shashlik.EventBus.MongoDb\Shashlik.EventBus.MongoDb.csproj", "{D901F25A-26B0-4D89-8547-D6B0F02DD4BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.MongoDb", "..\Shashlik.EventBus.Storage.MongoDb\Shashlik.EventBus.Storage.MongoDb.csproj", "{D901F25A-26B0-4D89-8547-D6B0F02DD4BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Pulsar", "..\Shashlik.EventBus.Pulsar\Shashlik.EventBus.Pulsar.csproj", "{39FD5D20-7A20-46B6-8D3B-F02FCF3A9902}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.Pulsar", "..\Shashlik.EventBus.Storage.Pulsar\Shashlik.EventBus.Storage.Pulsar.csproj", "{39FD5D20-7A20-46B6-8D3B-F02FCF3A9902}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Pulsar.Mysql", "Sample.Pulsar.Mysql\Sample.Pulsar.Mysql.csproj", "{E9D6C360-9E3A-4DC7-B6E7-00BB91DD2235}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Pulsar.MongoDb", "Sample.Pulsar.MongoDb\Sample.Pulsar.MongoDb.csproj", "{E530C753-4D9B-48B0-9209-345A45A78558}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Sqlite", "..\Shashlik.EventBus.Sqlite\Shashlik.EventBus.Sqlite.csproj", "{168C194E-8FA0-4516-AF0A-A1B8326B194F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Storage.Sqlite", "..\Shashlik.EventBus.Storage.Sqlite\Shashlik.EventBus.Storage.Sqlite.csproj", "{168C194E-8FA0-4516-AF0A-A1B8326B194F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Sqlite", "Sample.Sqlite\Sample.Sqlite.csproj", "{0AA030B0-6D8C-44FD-A0E8-ACEFEC39DA70}"
 EndProject

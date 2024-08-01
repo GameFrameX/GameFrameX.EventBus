@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Shashlik.EventBus;
+using Shashlik.EventBus.Abstractions;
 using Shashlik.Kernel.Dependency;
 using Shouldly;
 

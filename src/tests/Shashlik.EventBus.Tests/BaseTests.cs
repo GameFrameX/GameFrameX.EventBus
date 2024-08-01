@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CommonTestLogical;
 using CommonTestLogical.TestEvents;
 using Microsoft.Extensions.Options;
+using Shashlik.EventBus.Abstractions;
 using Shashlik.EventBus.DefaultImpl;
 using Shashlik.EventBus.Utils;
 using Shouldly;

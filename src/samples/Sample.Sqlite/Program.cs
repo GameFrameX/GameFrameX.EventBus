@@ -2,7 +2,6 @@
 
 using System;
 using System.IO;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -12,8 +11,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SampleBase;
 using Shashlik.EventBus;
-using Shashlik.EventBus.MemoryQueue;
-using Shashlik.EventBus.Sqlite;
+using Shashlik.EventBus.Abstractions;
+using Shashlik.EventBus.Storage.MemoryQueue;
+using Shashlik.EventBus.Storage.Sqlite;
 using Shashlik.Utils.Extensions;
 
 namespace Sample.Sqlite

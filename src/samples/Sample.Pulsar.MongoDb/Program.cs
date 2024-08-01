@@ -13,8 +13,8 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using SampleBase;
 using Shashlik.EventBus;
+using Shashlik.EventBus.Abstractions;
 using Shashlik.EventBus.MongoDb;
-using Shashlik.EventBus.MySql;
 using Shashlik.EventBus.Pulsar;
 using Shashlik.Utils.Extensions;
 

@@ -11,8 +11,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SampleBase;
 using Shashlik.EventBus;
-using Shashlik.EventBus.MySql;
-using Shashlik.EventBus.Redis;
+using Shashlik.EventBus.Abstractions;
+using Shashlik.EventBus.Storage.MySql;
+using Shashlik.EventBus.Storage.Redis;
 using Shashlik.Utils.Extensions;
 
 namespace Sample.Redis.Mysql

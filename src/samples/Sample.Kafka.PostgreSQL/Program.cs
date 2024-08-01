@@ -4,16 +4,15 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SampleBase;
 using Shashlik.EventBus;
-using Shashlik.EventBus.Kafka;
+using Shashlik.EventBus.Abstractions;
 using Shashlik.EventBus.MemoryStorage;
-using Shashlik.EventBus.PostgreSQL;
+using Shashlik.EventBus.Storage.Kafka;
 using Shashlik.Utils.Extensions;
 
 namespace Sample.Kafka.PostgreSQL

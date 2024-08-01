@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Shashlik.EventBus;
+using Shashlik.EventBus.Abstractions;
 using Shashlik.Utils.Extensions;
 
 namespace SampleBase

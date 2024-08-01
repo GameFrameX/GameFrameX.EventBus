@@ -8,8 +8,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SampleBase;
 using Shashlik.EventBus;
-using Shashlik.EventBus.MemoryQueue;
+using Shashlik.EventBus.Abstractions;
 using Shashlik.EventBus.MemoryStorage;
+using Shashlik.EventBus.Storage.MemoryQueue;
 using Shashlik.Utils.Extensions;
 
 namespace Sample.Memory

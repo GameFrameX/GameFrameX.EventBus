@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CommonTestLogical;
 using Microsoft.Extensions.Options;
+using Shashlik.EventBus.Abstractions;
 using Shouldly;
 using Xunit;
 using Xunit.Abstractions;

@@ -3,11 +3,11 @@ using MongoDB.Driver;
 using Shashlik.Dashboard.Demo;
 using Shashlik.EventBus;
 using Shashlik.EventBus.Dashboard;
-using Shashlik.EventBus.MemoryQueue;
 using Shashlik.EventBus.MongoDb;
-using Shashlik.EventBus.MySql;
-using Shashlik.EventBus.PostgreSQL;
-using Shashlik.EventBus.SqlServer;
+using Shashlik.EventBus.Storage.MemoryQueue;
+using Shashlik.EventBus.Storage.MySql;
+using Shashlik.EventBus.Storage.PostgreSQL;
+using Shashlik.EventBus.Storage.SqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
 

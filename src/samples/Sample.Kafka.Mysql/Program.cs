@@ -10,8 +10,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SampleBase;
 using Shashlik.EventBus;
-using Shashlik.EventBus.Kafka;
-using Shashlik.EventBus.MySql;
+using Shashlik.EventBus.Abstractions;
+using Shashlik.EventBus.Storage.Kafka;
+using Shashlik.EventBus.Storage.MySql;
 using Shashlik.Utils.Extensions;
 
 namespace Sample.Kafka.Mysql

@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 using Shashlik.EventBus;
+using Shashlik.EventBus.Abstractions;
 using Shashlik.Utils.Extensions;
 using Shashlik.Kernel.Dependency;
 using Shashlik.Utils.Helpers;
