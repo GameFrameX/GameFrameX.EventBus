@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-// ReSharper disable CheckNamespace
-
-namespace Shashlik.EventBus
+namespace Shashlik.EventBus.Abstractions
 {
     /// <summary>
     /// 事件发布器
@@ -21,12 +19,7 @@ namespace Shashlik.EventBus
         /// <param name="cancellationToken">cancellationToken</param>
         /// <typeparam name="TEvent">事件类型</typeparam>
         /// <returns></returns>
-        Task PublishAsync<TEvent>(
-            TEvent @event,
-            ITransactionContext? transactionContext,
-            IDictionary<string, string>? additionalItems = null,
-            CancellationToken cancellationToken = default
-        ) where TEvent : IEvent;
+        Task PublishAsync<TEvent>(TEvent @event, ITransactionContext transactionContext = null, IDictionary<string, string> additionalItems = null, CancellationToken cancellationToken = default) where TEvent : IEvent;
 
         /// <summary>
         /// 延迟事件发布
@@ -38,12 +31,6 @@ namespace Shashlik.EventBus
         /// <param name="cancellationToken">cancellationToken</param>
         /// <typeparam name="TEvent">事件类型</typeparam>
         /// <returns></returns>
-        Task PublishAsync<TEvent>(
-            TEvent @event,
-            DateTimeOffset delayAt,
-            ITransactionContext? transactionContext,
-            IDictionary<string, string>? additionalItems = null,
-            CancellationToken cancellationToken = default)
-            where TEvent : IEvent;
+        Task PublishAsync<TEvent>(TEvent @event, DateTimeOffset delayAt, ITransactionContext transactionContext = null, IDictionary<string, string> additionalItems = null, CancellationToken cancellationToken = default) where TEvent : IEvent;
     }
 }

@@ -1,6 +1,5 @@
-﻿// ReSharper disable CheckNamespace
-
-namespace Shashlik.EventBus
+﻿
+namespace Shashlik.EventBus.Abstractions
 {
     /// <summary>
     /// 事件定义
