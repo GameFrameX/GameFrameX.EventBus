@@ -11,16 +11,20 @@ namespace Shashlik.EventBus.DefaultImpl
         }
 
         private CancellationTokenSource StopCancellationTokenSource { get; }
-        public CancellationToken StopCancellationToken => StopCancellationTokenSource.Token;
-
-        internal void Cancel()
-        {
-            StopCancellationTokenSource.Cancel();
-        }
 
         public void Dispose()
         {
             StopCancellationTokenSource.Dispose();
+        }
+
+        public CancellationToken StopCancellationToken
+        {
+            get { return StopCancellationTokenSource.Token; }
+        }
+
+        internal void Cancel()
+        {
+            StopCancellationTokenSource.Cancel();
         }
     }
 }

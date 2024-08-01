@@ -1,27 +1,28 @@
 ﻿using System.Data;
+using Shashlik.EventBus.Abstractions;
+
 // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
 
-namespace Shashlik.EventBus.RelationDbStorage
+namespace Shashlik.EventBus.RelationDbStorage;
+
+public class RelationDbStorageTransactionContext : ITransactionContext
 {
-    public class RelationDbStorageTransactionContext : ITransactionContext
+    public RelationDbStorageTransactionContext(IDbTransaction dbTransaction)
     {
-        public RelationDbStorageTransactionContext(IDbTransaction dbTransaction)
+        DbTransaction = dbTransaction;
+    }
+
+    public IDbTransaction DbTransaction { get; }
+
+    public virtual bool IsDone()
+    {
+        try
         {
-            DbTransaction = dbTransaction;
+            return DbTransaction.Connection is null;
         }
-
-        public IDbTransaction DbTransaction { get; }
-
-        public virtual bool IsDone()
+        catch
         {
-            try
-            {
-                return DbTransaction.Connection is null;
-            }
-            catch
-            {
-                return true;
-            }
+            return true;
         }
     }
 }

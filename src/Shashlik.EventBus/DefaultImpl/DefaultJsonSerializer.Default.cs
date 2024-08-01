@@ -14,7 +14,7 @@ namespace Shashlik.EventBus.DefaultImpl
             return JsonConvert.SerializeObject(instance);
         }
 
-        public object? Deserialize(string str, Type type)
+        public object Deserialize(string str, Type type)
         {
             ArgumentNullException.ThrowIfNull(str);
             ArgumentNullException.ThrowIfNull(type);

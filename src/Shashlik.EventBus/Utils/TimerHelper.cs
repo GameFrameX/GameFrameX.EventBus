@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Timers;
 using Timer = System.Timers.Timer;
 
 namespace Shashlik.EventBus.Utils
@@ -16,20 +17,27 @@ namespace Shashlik.EventBus.Utils
         public static void SetTimeout(Action action, TimeSpan expire, CancellationToken cancellationToken = default)
         {
             if (cancellationToken.IsCancellationRequested)
+            {
                 return;
+            }
 
             if (expire <= TimeSpan.Zero)
+            {
                 throw new ArgumentException("invalid expire.", nameof(expire));
+            }
 
-            var timer = new Timer { Interval = expire.TotalMilliseconds, AutoReset = false };
-            timer.Elapsed += (_, _) =>
+            var timer = new Timer { Interval = expire.TotalMilliseconds, AutoReset = false, };
+
+            void OnTimerOnElapsed(object o, ElapsedEventArgs elapsedEventArgs)
             {
                 try
                 {
                     using (timer)
                     {
                         if (!cancellationToken.IsCancellationRequested)
+                        {
                             action();
+                        }
 
                         timer.Stop();
                         timer.Close();
@@ -39,7 +47,9 @@ namespace Shashlik.EventBus.Utils
                 {
                     // ignore
                 }
-            };
+            }
+
+            timer.Elapsed += OnTimerOnElapsed;
             timer.Start();
         }
 
@@ -50,10 +60,9 @@ namespace Shashlik.EventBus.Utils
         /// <param name="runAt">过期时间</param>
         /// <param name="cancellationToken">撤销</param>
         /// <return></return>
-        public static void SetTimeout(Action action, DateTimeOffset runAt,
-            CancellationToken cancellationToken = default)
+        public static void SetTimeout(Action action, DateTimeOffset runAt, CancellationToken cancellationToken = default)
         {
-            SetTimeout(action, (runAt - DateTimeOffset.Now), cancellationToken);
+            SetTimeout(action, runAt - DateTimeOffset.Now, cancellationToken);
         }
 
         /// <summary>
@@ -66,16 +75,25 @@ namespace Shashlik.EventBus.Utils
         public static void SetInterval(Action action, TimeSpan interval, CancellationToken cancellationToken = default)
         {
             if (cancellationToken.IsCancellationRequested)
+            {
                 return;
-            if (interval <= TimeSpan.Zero)
-                throw new ArgumentException("invalid interval.", nameof(interval));
+            }
 
-            var timer = new Timer { Interval = interval.TotalMilliseconds, AutoReset = true };
-            timer.Elapsed += (_, _) =>
+            if (interval <= TimeSpan.Zero)
+            {
+                throw new ArgumentException("invalid interval.", nameof(interval));
+            }
+
+            var timer = new Timer { Interval = interval.TotalMilliseconds, AutoReset = true, };
+
+            void OnTimerOnElapsed(object o, ElapsedEventArgs elapsedEventArgs)
             {
                 if (!cancellationToken.IsCancellationRequested)
+                {
                     action();
+                }
                 else
+                {
                     try
                     {
                         using (timer)
@@ -88,7 +106,10 @@ namespace Shashlik.EventBus.Utils
                     {
                         // ignored
                     }
-            };
+                }
+            }
+
+            timer.Elapsed += OnTimerOnElapsed;
             timer.Start();
         }
     }

@@ -1,59 +1,60 @@
 ﻿using Microsoft.AspNetCore.Http.Extensions;
 
-namespace Shashlik.EventBus.Dashboard;
-
-public class UrlService
+namespace Shashlik.EventBus.Dashboard
 {
-    private readonly IHttpContextAccessor _httpContextAccessor;
-
-    /// <summary>
-    /// ctor
-    /// </summary>
-    /// <param name="httpContextAccessor"></param>
-    public UrlService(IHttpContextAccessor httpContextAccessor)
+    public class UrlService
     {
-        _httpContextAccessor = httpContextAccessor;
-    }
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public string CurrentUrl(string query, string value)
-    {
-        var uri = new UriBuilder(_httpContextAccessor.HttpContext!.Request.GetDisplayUrl());
-        var queryString = uri.Query;
-        if (queryString.StartsWith('?'))
+        /// <summary>
+        ///     ctor
+        /// </summary>
+        /// <param name="httpContextAccessor"></param>
+        public UrlService(IHttpContextAccessor httpContextAccessor)
         {
-            queryString = queryString[1..];
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        var queryDic = new Dictionary<string, string>();
-        foreach (var s in queryString.Split('&'))
+        public string CurrentUrl(string query, string value)
         {
-            var queryData = s.Split('=');
-            if (string.IsNullOrEmpty(queryData[0]))
+            var uri         = new UriBuilder(_httpContextAccessor.HttpContext!.Request.GetDisplayUrl());
+            var queryString = uri.Query;
+            if (queryString.StartsWith('?'))
             {
-                continue;
+                queryString = queryString[1..];
             }
 
-            if (queryData.Length < 2)
+            var queryDic = new Dictionary<string, string>();
+            foreach (var s in queryString.Split('&'))
             {
-                queryDic[queryData[0]] = string.Empty;
-            }
-            else
-            {
-                queryDic[queryData[0]] = queryData[1];
+                var queryData = s.Split('=');
+                if (string.IsNullOrEmpty(queryData[0]))
+                {
+                    continue;
+                }
+
+                if (queryData.Length < 2)
+                {
+                    queryDic[queryData[0]] = string.Empty;
+                }
+                else
+                {
+                    queryDic[queryData[0]] = queryData[1];
+                }
+
+                if (queryData[0] == query)
+                {
+                    queryDic[queryData[0]] = value;
+                }
             }
 
-            if (queryData[0] == query)
+            if (!queryDic.ContainsKey(query))
             {
-                queryDic[queryData[0]] = value;
+                queryDic[query] = value;
             }
+
+            uri.Query = string.Join('&', queryDic.Select(x => $"{x.Key}={x.Value}"));
+            return uri.Uri.PathAndQuery;
         }
-
-        if (!queryDic.ContainsKey(query))
-        {
-            queryDic[query] = value;
-        }
-
-        uri.Query = string.Join('&', queryDic.Select(x => $"{x.Key}={x.Value}"));
-        return uri.Uri.PathAndQuery.ToString();
     }
 }

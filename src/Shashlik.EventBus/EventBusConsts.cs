@@ -6,9 +6,9 @@ namespace Shashlik.EventBus
 {
     public static class EventBusConsts
     {
-        public const string MsgIdHeaderKey = "eventbus-msg-id";
-        public const string SendAtHeaderKey = "eventbus-send-at";
-        public const string DelayAtHeaderKey = "eventbus-delay-at";
+        public const string MsgIdHeaderKey     = "eventbus-msg-id";
+        public const string SendAtHeaderKey    = "eventbus-send-at";
+        public const string DelayAtHeaderKey   = "eventbus-delay-at";
         public const string EventNameHeaderKey = "eventbus-event-name";
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Shashlik.EventBus
         /// </summary>
         /// <param name="additionalItems"></param>
         /// <returns></returns>
-        public static DateTimeOffset GetSendAt(this IDictionary<string, string> additionalItems)
+        public static DateTimeOffset GetSendTime(this IDictionary<string, string> additionalItems)
         {
             return additionalItems[SendAtHeaderKey].ParseTo<DateTimeOffset>();
         }
@@ -46,7 +46,7 @@ namespace Shashlik.EventBus
         /// </summary>
         /// <param name="additionalItems"></param>
         /// <returns></returns>
-        public static DateTimeOffset? GetDelayAt(this IDictionary<string, string> additionalItems)
+        public static DateTimeOffset? GetDelayTime(this IDictionary<string, string> additionalItems)
         {
             return additionalItems.GetOrDefault(DelayAtHeaderKey)?.ParseTo<DateTimeOffset>();
         }

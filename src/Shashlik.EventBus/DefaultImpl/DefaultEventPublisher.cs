@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Shashlik.EventBus.Abstractions;
 
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
@@ -14,67 +15,48 @@ namespace Shashlik.EventBus.DefaultImpl
     public class DefaultEventPublisher : IEventPublisher
     {
         public DefaultEventPublisher(
-            IMessageStorage messageStorage,
-            IMessageSerializer messageSerializer,
-            IEventNameRuler eventNameRuler,
-            IOptions<EventBusOptions> options,
-            IMsgIdGenerator msgIdGenerator,
-            IPublishHandler publishHandler,
+            IMessageStorage                messageStorage,
+            IMessageSerializer             messageSerializer,
+            IEventNameRuler                eventNameRuler,
+            IOptions<EventBusOptions>      options,
+            IMessageIdGenerator            messageIdGenerator,
+            IPublishHandler                publishHandler,
             ILogger<DefaultEventPublisher> logger)
         {
-            MessageStorage = messageStorage;
-            MessageSerializer = messageSerializer;
-            EventNameRuler = eventNameRuler;
-            Options = options;
-            MsgIdGenerator = msgIdGenerator;
-            PublishHandler = publishHandler;
-            Logger = logger;
+            MessageStorage     = messageStorage;
+            MessageSerializer  = messageSerializer;
+            EventNameRuler     = eventNameRuler;
+            Options            = options;
+            MessageIdGenerator = messageIdGenerator;
+            PublishHandler     = publishHandler;
+            Logger             = logger;
         }
 
-        private IMessageStorage MessageStorage { get; }
-        private IMessageSerializer MessageSerializer { get; }
-        private IEventNameRuler EventNameRuler { get; }
-        private IMsgIdGenerator MsgIdGenerator { get; }
-        private IOptions<EventBusOptions> Options { get; }
-        private IPublishHandler PublishHandler { get; }
-        private ILogger<DefaultEventPublisher> Logger { get; }
+        private IMessageStorage                MessageStorage     { get; }
+        private IMessageSerializer             MessageSerializer  { get; }
+        private IEventNameRuler                EventNameRuler     { get; }
+        private IMessageIdGenerator            MessageIdGenerator { get; }
+        private IOptions<EventBusOptions>      Options            { get; }
+        private IPublishHandler                PublishHandler     { get; }
+        private ILogger<DefaultEventPublisher> Logger             { get; }
 
-        public async Task PublishAsync<TEvent>(
-            TEvent @event,
-            ITransactionContext? transactionContext,
-            IDictionary<string, string>? additionalItems = null,
-            CancellationToken cancellationToken = default
-        ) where TEvent : IEvent
+        public async Task PublishAsync<TEvent>(TEvent @event, ITransactionContext transactionContext, IDictionary<string, string> additionalItems = null, CancellationToken cancellationToken = default) where TEvent : IEvent
         {
-            await InnerPublish(@event, null, transactionContext, additionalItems, cancellationToken)
-                .ConfigureAwait(false);
+            await InnerPublish(@event, null, transactionContext, additionalItems, cancellationToken).ConfigureAwait(false);
         }
 
-        public async Task PublishAsync<TEvent>(
-            TEvent @event,
-            DateTimeOffset delayAt,
-            ITransactionContext? transactionContext,
-            IDictionary<string, string>? additionalItems = null,
-            CancellationToken cancellationToken = default
-        ) where TEvent : IEvent
+        public async Task PublishAsync<TEvent>(TEvent @event, DateTimeOffset delayAt, ITransactionContext transactionContext, IDictionary<string, string> additionalItems = null, CancellationToken cancellationToken = default) where TEvent : IEvent
         {
-            await InnerPublish(@event, delayAt, transactionContext, additionalItems, cancellationToken)
-                .ConfigureAwait(false);
+            await InnerPublish(@event, delayAt, transactionContext, additionalItems, cancellationToken).ConfigureAwait(false);
         }
 
-        private async Task InnerPublish<TEvent>(
-            TEvent @event,
-            DateTimeOffset? delayAt,
-            ITransactionContext? transactionContext,
-            IDictionary<string, string>? additionalItems = null,
-            CancellationToken cancellationToken = default
-        )
+        private async Task InnerPublish<TEvent>(TEvent @event, DateTimeOffset? delayAt, ITransactionContext transactionContext, IDictionary<string, string> additionalItems = null, CancellationToken cancellationToken = default)
         {
-            if (@event is null) throw new ArgumentNullException(nameof(@event));
+            ArgumentNullException.ThrowIfNull(@event, nameof(@event));
 
-            var now = DateTimeOffset.Now;
+            var now       = DateTimeOffset.Now;
             var eventName = EventNameRuler.GetName(typeof(TEvent));
-            var msgId = MsgIdGenerator.GenerateId();
+            var msgId     = MessageIdGenerator.GenerateId();
             additionalItems ??= new Dictionary<string, string>();
             additionalItems.Add(EventBusConsts.SendAtHeaderKey, now.ToString());
             additionalItems.Add(EventBusConsts.EventNameHeaderKey, eventName);
@@ -82,61 +64,55 @@ namespace Shashlik.EventBus.DefaultImpl
             if (delayAt.HasValue)
             {
                 if (delayAt.Value <= DateTimeOffset.Now)
+                {
                     delayAt = null;
+                }
                 else
-                    additionalItems.Add(EventBusConsts.DelayAtHeaderKey, delayAt.ToString() ?? "");
+                {
+                    additionalItems.Add(EventBusConsts.DelayAtHeaderKey, delayAt.ToString());
+                }
             }
 
             MessageStorageModel messageStorageModel = new()
             {
-                MsgId = msgId,
-                Environment = Options.Value.Environment,
-                CreateTime = now,
-                ExpireTime = null,
+                MsgId            = msgId,
+                Environment      = Options.Value.Environment,
+                CreateTime       = now,
+                ExpireTime       = null,
                 EventHandlerName = null,
-                EventName = EventNameRuler.GetName(typeof(TEvent)),
-                RetryCount = 0,
-                Status = MessageStatus.Scheduled,
-                IsLocking = false,
-                LockEnd = null,
-                EventItems = MessageSerializer.Serialize(additionalItems),
-                EventBody = MessageSerializer.Serialize(@event),
-                DelayAt = delayAt,
+                EventName        = EventNameRuler.GetName(typeof(TEvent)),
+                RetryCount       = 0,
+                Status           = MessageStatus.Scheduled,
+                IsLocking        = false,
+                LockEnd          = null,
+                EventItems       = MessageSerializer.Serialize(additionalItems),
+                EventBody        = MessageSerializer.Serialize(@event),
+                DelayAt          = delayAt,
             };
 
             MessageTransferModel messageTransferModel = new()
             {
-                EventName = messageStorageModel.EventName,
+                EventName   = messageStorageModel.EventName,
                 Environment = Options.Value.Environment,
-                MsgId = messageStorageModel.MsgId,
-                MsgBody = messageStorageModel.EventBody,
-                Items = additionalItems,
-                SendAt = now,
-                DelayAt = delayAt
+                MsgId       = messageStorageModel.MsgId,
+                MsgBody     = messageStorageModel.EventBody,
+                Items       = additionalItems,
+                SendAt      = now,
+                DelayAt     = delayAt,
             };
 
             // 消息持久化
-            await MessageStorage.SavePublishedAsync(messageStorageModel, transactionContext, cancellationToken)
-                .ConfigureAwait(false);
+            await MessageStorage.SavePublishedAsync(messageStorageModel, transactionContext, cancellationToken).ConfigureAwait(false);
             // 先持久化,持久化没有错误,异步发送消息
             // 异步发送消息,启动时如果失败,最多循环5次
-            _ = Task.Run(
-                async () => await Start(transactionContext, messageStorageModel, messageTransferModel,
-                        cancellationToken)
-                    .ConfigureAwait(false)
-                , cancellationToken).ConfigureAwait(false);
+            _ = Task.Run(async () => await Start(transactionContext, messageStorageModel, messageTransferModel, cancellationToken).ConfigureAwait(false), cancellationToken).ConfigureAwait(false);
         }
 
-        private async Task Start(
-            ITransactionContext? transactionContext,
-            MessageStorageModel messageStorageModel,
-            MessageTransferModel messageTransferModel,
-            CancellationToken cancellationToken)
+        private async Task Start(ITransactionContext transactionContext, MessageStorageModel messageStorageModel, MessageTransferModel messageTransferModel, CancellationToken cancellationToken)
         {
             // 等待事务完成
             var now = DateTimeOffset.Now;
-            while (!cancellationToken.IsCancellationRequested && transactionContext != null &&
-                   !transactionContext.IsDone())
+            while (!cancellationToken.IsCancellationRequested && transactionContext != null && !transactionContext.IsDone())
             {
                 if ((DateTimeOffset.Now - now).TotalSeconds > Options.Value.TransactionCommitTimeout)
                 {
@@ -151,9 +127,7 @@ namespace Shashlik.EventBus.DefaultImpl
             try
             {
                 // 消息未提交, 不执行任何操作
-                if (!await MessageStorage
-                        .IsCommittedAsync(messageStorageModel.MsgId, cancellationToken)
-                        .ConfigureAwait(false))
+                if (!await MessageStorage.IsCommittedAsync(messageStorageModel.MsgId, cancellationToken).ConfigureAwait(false))
                 {
                     Logger.LogDebug($"[EventBus] message \"{messageStorageModel.Id}\" has been rollback");
                     return;
@@ -170,19 +144,22 @@ namespace Shashlik.EventBus.DefaultImpl
             var failCount = 1;
             while (!cancellationToken.IsCancellationRequested)
             {
-                if (messageStorageModel.CreateTime <=
-                    DateTimeOffset.Now.AddSeconds(-Options.Value.TransactionCommitTimeout))
+                if (messageStorageModel.CreateTime <= DateTimeOffset.Now.AddSeconds(-Options.Value.TransactionCommitTimeout))
+                {
                     // 超过时间了,就不管了,状态还是SCHEDULED
                     return;
+                }
 
                 // 执行真正的消息发送
-                var handleResult = await PublishHandler
-                    .HandleAsync(messageTransferModel, messageStorageModel, cancellationToken)
-                    .ConfigureAwait(false);
+                var handleResult = await PublishHandler.HandleAsync(messageTransferModel, messageStorageModel, cancellationToken).ConfigureAwait(false);
                 if (!handleResult.Success)
+                {
                     failCount++;
+                }
                 else
+                {
                     return;
+                }
 
                 if (failCount > 5)
                 {

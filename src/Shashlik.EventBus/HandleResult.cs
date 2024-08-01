@@ -10,11 +10,11 @@
         public HandleResult(bool success, MessageStorageModel messageStorageModel)
         {
             MessageStorageModel = messageStorageModel;
-            Success = success;
+            Success             = success;
         }
 
         public bool Success { get; }
 
-        public MessageStorageModel? MessageStorageModel { get; }
+        public MessageStorageModel MessageStorageModel { get; }
     }
 }

@@ -2,30 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Shashlik.EventBus.Abstractions;
 using Shashlik.EventBus.Utils;
 
 namespace Shashlik.EventBus.DefaultImpl
 {
     public class DefaultEventHandlerFindProvider : IEventHandlerFindProvider
     {
-        public DefaultEventHandlerFindProvider(IEventNameRuler eventNameRuler,
-            IEventHandlerNameRuler eventHandlerNameRuler)
+        private static IDictionary<string, EventHandlerDescriptor> _cache;
+
+        public DefaultEventHandlerFindProvider(IEventNameRuler eventNameRuler, IEventHandlerNameRuler eventHandlerNameRuler)
         {
-            EventNameRuler = eventNameRuler;
+            EventNameRuler        = eventNameRuler;
             EventHandlerNameRuler = eventHandlerNameRuler;
         }
 
-        private IEventNameRuler EventNameRuler { get; }
+        private IEventNameRuler        EventNameRuler        { get; }
         private IEventHandlerNameRuler EventHandlerNameRuler { get; }
-
-        private static IDictionary<string, EventHandlerDescriptor>? _cache;
 
         public IEnumerable<EventHandlerDescriptor> FindAll()
         {
-            if (_cache is not null) return _cache.Values;
+            if (_cache is not null)
+            {
+                return _cache.Values;
+            }
+
             lock (this)
             {
-                if (_cache is not null) return _cache.Values;
+                if (_cache is not null)
+                {
+                    return _cache.Values;
+                }
 
                 var types = ReflectionHelper.GetFinalSubTypes(typeof(IEventHandler<>));
 
@@ -36,9 +43,9 @@ namespace Shashlik.EventBus.DefaultImpl
                     list.Add(new EventHandlerDescriptor
                     {
                         EventHandlerName = EventHandlerNameRuler.GetName(typeInfo),
-                        EventName = EventNameRuler.GetName(GetEventType(typeInfo)),
-                        EventType = eventType,
-                        EventHandlerType = typeInfo
+                        EventName        = EventNameRuler.GetName(GetEventType(typeInfo)),
+                        EventType        = eventType,
+                        EventHandlerType = typeInfo,
                     });
                 }
 
@@ -48,10 +55,12 @@ namespace Shashlik.EventBus.DefaultImpl
             return _cache.Values;
         }
 
-        public EventHandlerDescriptor? GetByName(string eventHandlerName)
+        public EventHandlerDescriptor GetByName(string eventHandlerName)
         {
             if (_cache is null)
+            {
                 FindAll();
+            }
 
             return _cache!.GetOrDefault(eventHandlerName);
         }
@@ -59,10 +68,10 @@ namespace Shashlik.EventBus.DefaultImpl
         private static Type GetEventType(Type type)
         {
             return type.GetTypeInfo()
-                .ImplementedInterfaces
-                .Single(r => r.IsGenericType && r.GetGenericTypeDefinition() == typeof(IEventHandler<>))
-                .GetGenericArguments()
-                .Single();
+                       .ImplementedInterfaces
+                       .Single(r => r.IsGenericType && r.GetGenericTypeDefinition() == typeof(IEventHandler<>))
+                       .GetGenericArguments()
+                       .Single();
         }
     }
 }

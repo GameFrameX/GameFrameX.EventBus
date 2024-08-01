@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using Microsoft.Extensions.Options;
+using Shashlik.EventBus.Abstractions;
 
 namespace Shashlik.EventBus.DefaultImpl
 {

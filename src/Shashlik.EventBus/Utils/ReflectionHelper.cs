@@ -18,23 +18,26 @@ namespace Shashlik.EventBus.Utils
         /// <param name="assembly">引用这个程序集</param>
         /// <param name="dependencyContext">依赖上下文,null则使用默认</param>
         /// <returns></returns>
-        public static List<Assembly> GetReferredAssemblies(Assembly assembly,
-            DependencyContext? dependencyContext = null)
+        public static List<Assembly> GetReferredAssemblies(Assembly assembly, DependencyContext dependencyContext = null)
         {
             var res = CacheAssemblyReferred.GetOrDefault(assembly);
             if (res is not null)
+            {
                 return res;
+            }
 
             var allLib = (dependencyContext ?? DependencyContext.Default)
-                .RuntimeLibraries
-                .OrderBy(r => r.Name)
-                .ToList();
+                         .RuntimeLibraries
+                         .OrderBy(r => r.Name)
+                         .ToList();
 
             var name = assembly.GetName().Name;
             if (name is null)
+            {
                 return new List<Assembly>();
+            }
 
-            Dictionary<string, HashSet<string>> allDependencies = new Dictionary<string, HashSet<string>>();
+            var allDependencies = new Dictionary<string, HashSet<string>>();
             foreach (var item in allLib)
             {
                 allDependencies.Add(item.Name, new HashSet<string>());
@@ -42,20 +45,20 @@ namespace Shashlik.EventBus.Utils
             }
 
             var list = allDependencies
-                .Where(r => r.Value.Contains(name))
-                .Select(r =>
-                {
-                    try
-                    {
-                        return Assembly.Load(r.Key);
-                    }
-                    catch
-                    {
-                        return null;
-                    }
-                })
-                .Where(r => r is not null)
-                .ToList();
+                       .Where(r => r.Value.Contains(name))
+                       .Select(r =>
+                               {
+                                   try
+                                   {
+                                       return Assembly.Load(r.Key);
+                                   }
+                                   catch
+                                   {
+                                       return null;
+                                   }
+                               })
+                       .Where(r => r is not null)
+                       .ToList();
 
             res = list!;
             CacheAssemblyReferred.TryAdd(assembly, res);
@@ -67,7 +70,7 @@ namespace Shashlik.EventBus.Utils
         /// </summary>
         /// <param name="dependencyContext">依赖上下文,null则使用默认</param>
         /// <returns></returns>
-        public static List<Assembly> GetReferredAssemblies<TType>(DependencyContext? dependencyContext = null)
+        public static List<Assembly> GetReferredAssemblies<TType>(DependencyContext dependencyContext = null)
         {
             return GetReferredAssemblies(typeof(TType).Assembly, dependencyContext);
         }
@@ -78,7 +81,7 @@ namespace Shashlik.EventBus.Utils
         /// <param name="type"></param>
         /// <param name="dependencyContext">依赖上下文,null则使用默认</param>
         /// <returns></returns>
-        public static List<Assembly> GetReferredAssemblies(Type type, DependencyContext? dependencyContext = null)
+        public static List<Assembly> GetReferredAssemblies(Type type, DependencyContext dependencyContext = null)
         {
             return GetReferredAssemblies(type.Assembly, dependencyContext);
         }
@@ -92,7 +95,7 @@ namespace Shashlik.EventBus.Utils
         public static List<TypeInfo> GetFinalSubTypes(Type baseType, Assembly assembly)
         {
             return assembly.DefinedTypes.Where(r =>
-                !r.IsAbstract && r.IsClass && (r.IsSubTypeOrEqualsOf(baseType) || r.IsSubTypeOfGenericType(baseType))).ToList();
+                                                   !r.IsAbstract && r.IsClass && (r.IsSubTypeOrEqualsOf(baseType) || r.IsSubTypeOfGenericType(baseType))).ToList();
         }
 
         /// <summary>
@@ -101,9 +104,9 @@ namespace Shashlik.EventBus.Utils
         /// <param name="baseType">基类,可以是泛型定义</param>
         /// <param name="dependencyContext"></param>
         /// <returns></returns>
-        public static List<TypeInfo> GetFinalSubTypes(Type baseType, DependencyContext? dependencyContext = null)
+        public static List<TypeInfo> GetFinalSubTypes(Type baseType, DependencyContext dependencyContext = null)
         {
-            List<TypeInfo> types = new List<TypeInfo>();
+            var types = new List<TypeInfo>();
             foreach (var item in GetReferredAssemblies(baseType, dependencyContext))
             {
                 types.AddRange(GetFinalSubTypes(baseType, item));
@@ -129,7 +132,7 @@ namespace Shashlik.EventBus.Utils
         /// <typeparam name="TBaseType"></typeparam>
         /// <param name="dependencyContext"></param>
         /// <returns></returns>
-        public static List<TypeInfo> GetFinalSubTypes<TBaseType>(DependencyContext? dependencyContext = null)
+        public static List<TypeInfo> GetFinalSubTypes<TBaseType>(DependencyContext dependencyContext = null)
         {
             return GetFinalSubTypes(typeof(TBaseType), dependencyContext);
         }
@@ -143,9 +146,9 @@ namespace Shashlik.EventBus.Utils
         public static List<TypeInfo> GetSubTypes(Type baseType, Assembly assembly)
         {
             return assembly
-                .DefinedTypes
-                .Where(r => r.IsSubTypeOrEqualsOf(baseType) || r.IsSubTypeOfGenericType(baseType))
-                .ToList();
+                   .DefinedTypes
+                   .Where(r => r.IsSubTypeOrEqualsOf(baseType) || r.IsSubTypeOfGenericType(baseType))
+                   .ToList();
         }
 
         /// <summary>
@@ -154,11 +157,13 @@ namespace Shashlik.EventBus.Utils
         /// <param name="baseType">基类,可以是泛型定义</param>
         /// <param name="dependencyContext"></param>
         /// <returns></returns>
-        public static List<TypeInfo> GetSubTypes(Type baseType, DependencyContext? dependencyContext = null)
+        public static List<TypeInfo> GetSubTypes(Type baseType, DependencyContext dependencyContext = null)
         {
             var types = new List<TypeInfo>();
             foreach (var item in GetReferredAssemblies(baseType, dependencyContext))
+            {
                 types.AddRange(GetSubTypes(baseType, item));
+            }
 
             types.AddRange(GetSubTypes(baseType, baseType.Assembly));
             return types;
@@ -180,7 +185,7 @@ namespace Shashlik.EventBus.Utils
         /// <typeparam name="TBaseType"></typeparam>
         /// <param name="dependencyContext"></param>
         /// <returns></returns>
-        public static List<TypeInfo> GetSubTypes<TBaseType>(DependencyContext? dependencyContext = null)
+        public static List<TypeInfo> GetSubTypes<TBaseType>(DependencyContext dependencyContext = null)
         {
             return GetSubTypes(typeof(TBaseType), dependencyContext);
         }
@@ -192,16 +197,17 @@ namespace Shashlik.EventBus.Utils
         /// <param name="assembly"></param>
         /// <param name="inherit"></param>
         /// <returns></returns>
-        public static IDictionary<TypeInfo, Attribute> GetTypesAndAttribute(Type baseType, Assembly assembly,
-            bool inherit = true)
+        public static IDictionary<TypeInfo, Attribute> GetTypesAndAttribute(Type baseType, Assembly assembly, bool inherit = true)
         {
-            Dictionary<TypeInfo, Attribute> dic = new Dictionary<TypeInfo, Attribute>();
+            var dic = new Dictionary<TypeInfo, Attribute>();
 
             foreach (var item in assembly.DefinedTypes)
             {
                 var attr = item.GetCustomAttribute(baseType, inherit);
                 if (attr is null)
+                {
                     continue;
+                }
 
                 dic.Add(item, attr);
             }
@@ -216,10 +222,9 @@ namespace Shashlik.EventBus.Utils
         /// <param name="dependencyContext"></param>
         /// <param name="inherit"></param>
         /// <returns></returns>
-        public static IDictionary<TypeInfo, Attribute> GetTypesAndAttribute(Type baseType,
-            DependencyContext? dependencyContext = null, bool inherit = true)
+        public static IDictionary<TypeInfo, Attribute> GetTypesAndAttribute(Type baseType, DependencyContext dependencyContext = null, bool inherit = true)
         {
-            Dictionary<TypeInfo, Attribute> dic = new Dictionary<TypeInfo, Attribute>();
+            var dic = new Dictionary<TypeInfo, Attribute>();
             foreach (var item in GetReferredAssemblies(baseType, dependencyContext))
             {
                 dic.Merge(GetTypesAndAttribute(baseType, item, inherit));
@@ -236,17 +241,17 @@ namespace Shashlik.EventBus.Utils
         /// <param name="assembly"></param>
         /// <param name="inherit"></param>
         /// <returns></returns>
-        public static IDictionary<TypeInfo, TAttribute> GetTypesAndAttribute<TAttribute>(Assembly assembly,
-            bool inherit = true)
-            where TAttribute : Attribute
+        public static IDictionary<TypeInfo, TAttribute> GetTypesAndAttribute<TAttribute>(Assembly assembly, bool inherit = true) where TAttribute : Attribute
         {
-            Dictionary<TypeInfo, TAttribute> dic = new Dictionary<TypeInfo, TAttribute>();
+            var dic = new Dictionary<TypeInfo, TAttribute>();
 
             foreach (var item in assembly.DefinedTypes)
             {
                 var attr = item.GetCustomAttribute<TAttribute>(inherit);
                 if (attr is null)
+                {
                     continue;
+                }
 
                 dic.Add(item, attr);
             }
@@ -261,11 +266,9 @@ namespace Shashlik.EventBus.Utils
         /// <param name="dependencyContext"></param>
         /// <param name="inherit"></param>
         /// <returns></returns>
-        public static IDictionary<TypeInfo, TAttribute> GetTypesAndAttribute<TAttribute>(
-            DependencyContext? dependencyContext = null, bool inherit = true)
-            where TAttribute : Attribute
+        public static IDictionary<TypeInfo, TAttribute> GetTypesAndAttribute<TAttribute>(DependencyContext dependencyContext = null, bool inherit = true) where TAttribute : Attribute
         {
-            Dictionary<TypeInfo, TAttribute> dic = new Dictionary<TypeInfo, TAttribute>();
+            var dic = new Dictionary<TypeInfo, TAttribute>();
             foreach (var item in GetReferredAssemblies<TAttribute>(dependencyContext))
             {
                 dic.Merge(GetTypesAndAttribute<TAttribute>(item, inherit));
@@ -283,16 +286,17 @@ namespace Shashlik.EventBus.Utils
         /// <param name="assembly"></param>
         /// <param name="inherit"></param>
         /// <returns></returns>
-        public static IDictionary<TypeInfo, IEnumerable<object>> GetTypesByAttributes(Type baseType, Assembly assembly,
-            bool inherit = true)
+        public static IDictionary<TypeInfo, IEnumerable<object>> GetTypesByAttributes(Type baseType, Assembly assembly, bool inherit = true)
         {
-            Dictionary<TypeInfo, IEnumerable<object>> dic = new Dictionary<TypeInfo, IEnumerable<object>>();
+            var dic = new Dictionary<TypeInfo, IEnumerable<object>>();
 
             foreach (var item in assembly.DefinedTypes)
             {
                 var attrs = item.GetCustomAttributes(baseType, inherit);
                 if (attrs.IsNullOrEmpty())
+                {
                     continue;
+                }
 
                 dic.Add(item, attrs);
             }
@@ -307,10 +311,9 @@ namespace Shashlik.EventBus.Utils
         /// <param name="dependencyContext"></param>
         /// <param name="inherit"></param>
         /// <returns></returns>
-        public static IDictionary<TypeInfo, IEnumerable<object>> GetTypesByAttributes(Type baseType,
-            DependencyContext? dependencyContext = null, bool inherit = true)
+        public static IDictionary<TypeInfo, IEnumerable<object>> GetTypesByAttributes(Type baseType, DependencyContext dependencyContext = null, bool inherit = true)
         {
-            Dictionary<TypeInfo, IEnumerable<object>> dic = new Dictionary<TypeInfo, IEnumerable<object>>();
+            var dic = new Dictionary<TypeInfo, IEnumerable<object>>();
             foreach (var item in GetReferredAssemblies(baseType, dependencyContext))
             {
                 dic.Merge(GetTypesByAttributes(baseType, item, inherit));
@@ -327,17 +330,17 @@ namespace Shashlik.EventBus.Utils
         /// <param name="assembly"></param>
         /// <param name="inherit"></param>
         /// <returns></returns>
-        public static IDictionary<TypeInfo, IEnumerable<TAttribute>> GetTypesByAttributes<TAttribute>(Assembly assembly,
-            bool inherit = true)
-            where TAttribute : Attribute
+        public static IDictionary<TypeInfo, IEnumerable<TAttribute>> GetTypesByAttributes<TAttribute>(Assembly assembly, bool inherit = true) where TAttribute : Attribute
         {
-            Dictionary<TypeInfo, IEnumerable<TAttribute>> dic = new Dictionary<TypeInfo, IEnumerable<TAttribute>>();
+            var dic = new Dictionary<TypeInfo, IEnumerable<TAttribute>>();
 
             foreach (var item in assembly.DefinedTypes)
             {
                 var attrs = item.GetCustomAttributes<TAttribute>(inherit).ToList();
                 if (attrs.IsNullOrEmpty())
+                {
                     continue;
+                }
 
                 dic.Add(item, attrs);
             }
@@ -352,11 +355,9 @@ namespace Shashlik.EventBus.Utils
         /// <param name="dependencyContext"></param>
         /// <param name="inherit"></param>
         /// <returns></returns>
-        public static IDictionary<TypeInfo, IEnumerable<TAttribute>> GetTypesByAttributes<TAttribute>(
-            DependencyContext? dependencyContext = null, bool inherit = true)
-            where TAttribute : Attribute
+        public static IDictionary<TypeInfo, IEnumerable<TAttribute>> GetTypesByAttributes<TAttribute>(DependencyContext dependencyContext = null, bool inherit = true) where TAttribute : Attribute
         {
-            Dictionary<TypeInfo, IEnumerable<TAttribute>> dic = new Dictionary<TypeInfo, IEnumerable<TAttribute>>();
+            var dic = new Dictionary<TypeInfo, IEnumerable<TAttribute>>();
             foreach (var item in GetReferredAssemblies<TAttribute>(dependencyContext))
             {
                 dic.Merge(GetTypesByAttributes<TAttribute>(item, inherit));
@@ -372,8 +373,7 @@ namespace Shashlik.EventBus.Utils
         /// <summary>
         /// 缓存程序集被引用数据
         /// </summary>
-        private static readonly ConcurrentDictionary<Assembly, List<Assembly>> CacheAssemblyReferred =
-            new ConcurrentDictionary<Assembly, List<Assembly>>();
+        private static readonly ConcurrentDictionary<Assembly, List<Assembly>> CacheAssemblyReferred = new();
 
         /// <summary>
         /// 加载所有的依赖
@@ -383,13 +383,19 @@ namespace Shashlik.EventBus.Utils
         /// <param name="handled">当前计算的程序集,已经处理过的依赖程序集名称</param>
         /// <param name="current">递归正在处理的程序集名称</param>
         /// <param name="allDependencies">所有的依赖数据</param>
-        private static void LoadAllDependency(IEnumerable<RuntimeLibrary> allLibs, string key, HashSet<string> handled,
-            RuntimeLibrary current, Dictionary<string, HashSet<string>> allDependencies)
+        private static void LoadAllDependency(IEnumerable<RuntimeLibrary> allLibs, string                              key, HashSet<string> handled,
+            RuntimeLibrary                                                current, Dictionary<string, HashSet<string>> allDependencies)
         {
             if (current.Dependencies.IsNullOrEmpty())
+            {
                 return;
+            }
+
             if (handled.Contains(current.Name))
+            {
                 return;
+            }
+
             handled.Add(current.Name);
             var runtimeLibraries = allLibs.ToList();
             foreach (var item in current.Dependencies)
@@ -398,7 +404,10 @@ namespace Shashlik.EventBus.Utils
 
                 var next = runtimeLibraries.FirstOrDefault(r => r.Name == item.Name);
                 if (next is null || next.Dependencies.IsNullOrEmpty())
+                {
                     continue;
+                }
+
                 LoadAllDependency(runtimeLibraries, key, handled, next, allDependencies);
             }
         }

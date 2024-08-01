@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Transactions;
+using Shashlik.EventBus.Abstractions;
 
 namespace Shashlik.EventBus
 {
@@ -15,23 +16,20 @@ namespace Shashlik.EventBus
 
         private TransactionInformation Information { get; }
 
-        public bool IsDone()
-        {
-            return Information.Status is TransactionStatus.Aborted or TransactionStatus.Committed;
-        }
-
         /// <summary>
         /// 获取当前xa事务上下文(TransactionScope)
         /// </summary>
         /// <returns></returns>
-        public static ITransactionContext? Current
+        public static ITransactionContext Current
         {
             get
             {
                 try
                 {
                     if (Transaction.Current != null)
+                    {
                         return new XaTransactionContext(Transaction.Current);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -41,6 +39,11 @@ namespace Shashlik.EventBus
 
                 return null;
             }
+        }
+
+        public bool IsDone()
+        {
+            return Information.Status is TransactionStatus.Aborted or TransactionStatus.Committed;
         }
     }
 }

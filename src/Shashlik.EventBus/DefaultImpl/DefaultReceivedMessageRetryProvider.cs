@@ -14,33 +14,37 @@ namespace Shashlik.EventBus.DefaultImpl
     public class DefaultReceivedMessageRetryProvider : IReceivedMessageRetryProvider
     {
         public DefaultReceivedMessageRetryProvider(
-            IMessageStorage messageStorage,
-            IOptions<EventBusOptions> options,
+            IMessageStorage                              messageStorage,
+            IOptions<EventBusOptions>                    options,
             ILogger<DefaultReceivedMessageRetryProvider> logger,
-            IMessageSerializer messageSerializer,
-            IEventHandlerFindProvider eventHandlerFindProvider,
-            IReceivedHandler receivedHandler)
+            IMessageSerializer                           messageSerializer,
+            IEventHandlerFindProvider                    eventHandlerFindProvider,
+            IReceivedHandler                             receivedHandler)
         {
-            MessageStorage = messageStorage;
-            Options = options;
-            Logger = logger;
-            MessageSerializer = messageSerializer;
+            MessageStorage           = messageStorage;
+            Options                  = options;
+            Logger                   = logger;
+            MessageSerializer        = messageSerializer;
             EventHandlerFindProvider = eventHandlerFindProvider;
-            ReceivedHandler = receivedHandler;
+            ReceivedHandler          = receivedHandler;
         }
 
-        private IMessageStorage MessageStorage { get; }
-        private IOptions<EventBusOptions> Options { get; }
-        private ILogger<DefaultReceivedMessageRetryProvider> Logger { get; }
-        private IMessageSerializer MessageSerializer { get; }
-        private IEventHandlerFindProvider EventHandlerFindProvider { get; }
-        private IReceivedHandler ReceivedHandler { get; }
+        private IMessageStorage                              MessageStorage           { get; }
+        private IOptions<EventBusOptions>                    Options                  { get; }
+        private ILogger<DefaultReceivedMessageRetryProvider> Logger                   { get; }
+        private IMessageSerializer                           MessageSerializer        { get; }
+        private IEventHandlerFindProvider                    EventHandlerFindProvider { get; }
+        private IReceivedHandler                             ReceivedHandler          { get; }
 
         public async Task StartupAsync(CancellationToken cancellationToken)
         {
             await Retry(cancellationToken).ConfigureAwait(false);
 
-            async void Action() => await Retry(cancellationToken).ConfigureAwait(false);
+            async void Action()
+            {
+                await Retry(cancellationToken).ConfigureAwait(false);
+            }
+
             // 重试器执行间隔为5秒
             TimerHelper.SetInterval(
                 Action,
@@ -52,7 +56,10 @@ namespace Shashlik.EventBus.DefaultImpl
         {
             var item = await MessageStorage.FindReceivedByIdAsync(id, cancellationToken).ConfigureAwait(false);
             if (item is null)
+            {
                 throw new ArgumentException($"[EventBus] can not found received message of id: {id}", nameof(id));
+            }
+
             var descriptor = EventHandlerFindProvider.GetByName(item.EventHandlerName);
             if (descriptor is null)
             {
@@ -72,24 +79,26 @@ namespace Shashlik.EventBus.DefaultImpl
         {
             // 一次最多读取100条数据
             var messages = await MessageStorage.GetReceivedMessagesOfNeedRetryAsync(
-                Options.Value.RetryLimitCount,
-                Options.Value.StartRetryAfter,
-                Options.Value.RetryFailedMax,
-                Options.Value.Environment,
-                cancellationToken).ConfigureAwait(false);
+                               Options.Value.RetryLimitCount,
+                               Options.Value.StartRetryAfter,
+                               Options.Value.RetryFailedMax,
+                               Options.Value.Environment,
+                               cancellationToken).ConfigureAwait(false);
             if (messages.IsNullOrEmpty())
+            {
                 return;
+            }
 
 
             Parallel.ForEach(messages, new ParallelOptions
-                {
-                    MaxDegreeOfParallelism = Options.Value.RetryMaxDegreeOfParallelism
-                },
-                item =>
-                {
-                    ReceivedHandler.LockingHandleAsync(item.Id, cancellationToken).ConfigureAwait(false).GetAwaiter()
-                        .GetResult();
-                });
+                             {
+                                 MaxDegreeOfParallelism = Options.Value.RetryMaxDegreeOfParallelism,
+                             },
+                             item =>
+                             {
+                                 ReceivedHandler.LockingHandleAsync(item.Id, cancellationToken).ConfigureAwait(false).GetAwaiter()
+                                                .GetResult();
+                             });
         }
     }
 }

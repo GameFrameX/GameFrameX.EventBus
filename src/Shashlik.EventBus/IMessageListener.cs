@@ -15,7 +15,6 @@ namespace Shashlik.EventBus
         /// <param name="messageTransferModel">消息传输模型</param>
         /// <param name="cancellationToken"></param>
         /// <returns>消息接收处理结果</returns>
-        Task<MessageReceiveResult> OnReceiveAsync(string eventHandlerName, MessageTransferModel messageTransferModel,
-            CancellationToken cancellationToken);
+        Task<MessageReceiveResult> OnReceiveAsync(string eventHandlerName, MessageTransferModel messageTransferModel, CancellationToken cancellationToken);
     }
 }

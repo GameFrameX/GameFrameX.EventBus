@@ -20,6 +20,6 @@ namespace Shashlik.EventBus
         /// <param name="str"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        object? Deserialize(string str, Type type);
+        object Deserialize(string str, Type type);
     }
 }

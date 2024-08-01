@@ -16,7 +16,11 @@ public abstract class BaseDashboardController : Controller
 
     protected IOptionsMonitor<EventBusDashboardOption> Options { get; }
 
-    [ViewData] public string UrlPrefix => Options.CurrentValue.UrlPrefix;
+    [ViewData]
+    public string UrlPrefix
+    {
+        get { return Options.CurrentValue.UrlPrefix; }
+    }
 
     public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
     {

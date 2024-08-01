@@ -5,7 +5,14 @@
     /// </summary>
     public enum MessageReceiveResult
     {
+        /// <summary>
+        /// 消息接收成功
+        /// </summary>
         Success,
-        Failed
+
+        /// <summary>
+        /// 消息接收失败
+        /// </summary>
+        Failed,
     }
 }

@@ -15,33 +15,35 @@ public class PublishedController : BaseDashboardController
     }
 
 
-    public async Task<IActionResult> Index(string? eventName, string? status, int pageSize = 20, int pageIndex = 1)
+    public async Task<IActionResult> Index(string eventName, MessageStatus status, int pageSize = 20, int pageIndex = 1)
     {
         ViewBag.Title = "Published";
-        ViewBag.Page = "Published";
-        var model = new MessageViewModel();
-        model.StatusCount = await _messageStorage.GetPublishedMessageStatusCountsAsync(CancellationToken.None);
-        if (string.IsNullOrEmpty(status) && model.StatusCount.Keys.Count > 0)
+        ViewBag.Page  = "Published";
+        var model = new MessageViewModel
+        {
+            StatusCount = await _messageStorage.GetPublishedMessageStatusCountsAsync(CancellationToken.None),
+        };
+        if (status == MessageStatus.None && model.StatusCount.Keys.Count > 0)
         {
             status = model.StatusCount.Keys.First();
         }
 
         model.Messages = await _messageStorage.SearchPublishedAsync(eventName, status, (pageIndex - 1) * pageSize,
-            pageSize, CancellationToken.None);
+                                                                    pageSize, CancellationToken.None);
         model.PageIndex = pageIndex;
-        model.PageSize = pageSize;
+        model.PageSize  = pageSize;
         model.EventName = eventName;
         var total = 0M;
-        if (!string.IsNullOrEmpty(status))
+        if (status != MessageStatus.None)
         {
-            total = model.StatusCount.ContainsKey(status) ? model.StatusCount[status] : total;
+            total = model.StatusCount.TryGetValue(status, out var value) ? value : total;
         }
 
         model.TotalPage = Convert.ToInt32(Math.Ceiling(total / pageSize));
         return View("Messages", model);
     }
 
-    public async Task Retry(string[]? ids, [FromServices] IPublishedMessageRetryProvider publishedMessageRetryProvider)
+    public async Task Retry(string[] ids, [FromServices] IPublishedMessageRetryProvider publishedMessageRetryProvider)
     {
         if (ids == null)
         {

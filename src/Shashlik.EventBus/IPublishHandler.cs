@@ -15,10 +15,7 @@ namespace Shashlik.EventBus
         /// <param name="messageStorageModel">消息存储模型</param>
         /// <param name="cancellationToken">取消token</param>
         /// <returns></returns>
-        public Task<HandleResult> HandleAsync(
-            MessageTransferModel messageTransferModel,
-            MessageStorageModel messageStorageModel,
-            CancellationToken cancellationToken = default);
+        public Task<HandleResult> HandleAsync(MessageTransferModel messageTransferModel, MessageStorageModel messageStorageModel, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 锁定数据并执行发布操作
@@ -26,8 +23,6 @@ namespace Shashlik.EventBus
         /// <param name="storageId">消息id</param>
         /// <param name="cancellationToken">取消token</param>
         /// <returns></returns>
-        public Task<HandleResult> LockingHandleAsync(
-            string storageId,
-            CancellationToken cancellationToken = default);
+        public Task<HandleResult> LockingHandleAsync(string storageId, CancellationToken cancellationToken = default);
     }
 }

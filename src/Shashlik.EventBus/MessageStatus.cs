@@ -3,10 +3,31 @@
     /// <summary>
     /// 消息状态
     /// </summary>
-    public static class MessageStatus
+    public enum MessageStatus : byte
     {
-        public const string Failed = "FAILED";
-        public const string Scheduled = "SCHEDULED";
-        public const string Succeeded = "SUCCEEDED";
+        /// <summary>
+        /// 未处理
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// 失败
+        /// </summary>
+        Failed,
+
+        /// <summary>
+        /// 定时
+        /// </summary>
+        Scheduled,
+
+        /// <summary>
+        /// 成功
+        /// </summary>
+        Succeeded,
+
+        /// <summary>
+        /// 已删除
+        /// </summary>
+        Deleted,
     }
 }

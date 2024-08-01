@@ -14,36 +14,37 @@ public class ReceivedController : BaseDashboardController
     }
 
 
-    public async Task<IActionResult> Index(string? eventName, string? eventHandlerName, string? status,
-        int pageSize = 20, int pageIndex = 1)
+    public async Task<IActionResult> Index(string eventName, string eventHandlerName, MessageStatus status, int pageSize = 20, int pageIndex = 1)
     {
         ViewBag.Title = "Received";
-        ViewBag.Page = "Received";
-        var model = new MessageViewModel();
-        model.StatusCount = await _messageStorage.GetReceivedMessageStatusCountAsync(CancellationToken.None);
-        if (string.IsNullOrEmpty(status) && model.StatusCount.Keys.Count > 0)
+        ViewBag.Page  = "Received";
+        var model = new MessageViewModel
+        {
+            StatusCount = await _messageStorage.GetReceivedMessageStatusCountAsync(CancellationToken.None),
+        };
+        if (status == MessageStatus.None && model.StatusCount.Keys.Count > 0)
         {
             status = model.StatusCount.Keys.First();
         }
 
         model.Messages = await _messageStorage.SearchReceivedAsync(eventName, eventHandlerName, status,
-            (pageIndex - 1) * pageSize,
-            pageSize, CancellationToken.None);
-        model.PageIndex = pageIndex;
-        model.PageSize = pageSize;
-        model.EventName = eventName;
+                                                                   (pageIndex - 1) * pageSize,
+                                                                   pageSize, CancellationToken.None);
+        model.PageIndex        = pageIndex;
+        model.PageSize         = pageSize;
+        model.EventName        = eventName;
         model.EventHandlerName = eventHandlerName;
         var total = 0M;
-        if (!string.IsNullOrEmpty(status))
+        if (status != MessageStatus.None)
         {
-            total = model.StatusCount.ContainsKey(status) ? model.StatusCount[status] : total;
+            total = model.StatusCount.TryGetValue(status, out var value) ? value : total;
         }
 
         model.TotalPage = Convert.ToInt32(Math.Ceiling(total / pageSize));
         return View("Messages", model);
     }
 
-    public async Task Retry(string[]? ids, [FromServices] IReceivedMessageRetryProvider receivedMessageRetryProvider)
+    public async Task Retry(string[] ids, [FromServices] IReceivedMessageRetryProvider receivedMessageRetryProvider)
     {
         if (ids == null)
         {

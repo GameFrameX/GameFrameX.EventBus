@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shashlik.EventBus.MySql", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shashlik.EventBus.RabbitMQ", "Shashlik.EventBus.RabbitMQ\Shashlik.EventBus.RabbitMQ.csproj", "{5ECE0633-74F1-46A3-A341-F606FBD3581B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shashlik.EventBus.Abstract", "Shashlik.EventBus.Abstract\Shashlik.EventBus.Abstract.csproj", "{CF90295E-F92C-4198-AAAA-9D219D42B0E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shashlik.EventBus.Abstractions", "Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj", "{CF90295E-F92C-4198-AAAA-9D219D42B0E4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shashlik.EventBus", "Shashlik.EventBus\Shashlik.EventBus.csproj", "{4F29E4F3-70F3-4C2A-B958-A60FF467626A}"
 EndProject

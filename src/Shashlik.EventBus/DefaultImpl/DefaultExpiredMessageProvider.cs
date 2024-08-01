@@ -13,24 +13,20 @@ namespace Shashlik.EventBus.DefaultImpl
     /// </summary>
     public class DefaultExpiredMessageProvider : IExpiredMessageProvider
     {
-        public DefaultExpiredMessageProvider(IMessageStorage messageStorage,
-            ILogger<DefaultExpiredMessageProvider> logger)
+        public DefaultExpiredMessageProvider(IMessageStorage messageStorage, ILogger<DefaultExpiredMessageProvider> logger)
         {
             MessageStorage = messageStorage;
-            Logger = logger;
+            Logger         = logger;
         }
 
-        private IMessageStorage MessageStorage { get; }
-        private ILogger<DefaultExpiredMessageProvider> Logger { get; }
+        private IMessageStorage                        MessageStorage { get; }
+        private ILogger<DefaultExpiredMessageProvider> Logger         { get; }
 
         public async Task DoDeleteAsync(CancellationToken cancellationToken)
         {
             await Del(cancellationToken).ConfigureAwait(false);
             // 每个小时执行1次删除
-            TimerHelper.SetInterval(
-                async () => await Del(cancellationToken).ConfigureAwait(false),
-                TimeSpan.FromHours(1),
-                cancellationToken);
+            TimerHelper.SetInterval(async () => await Del(cancellationToken).ConfigureAwait(false), TimeSpan.FromHours(1), cancellationToken);
         }
 
         private async Task Del(CancellationToken cancellationToken)
@@ -41,7 +37,7 @@ namespace Shashlik.EventBus.DefaultImpl
             }
             catch (Exception e)
             {
-                Logger.LogError(e, $"[EventBus] delete expired data occur error");
+                Logger.LogError(e, "[EventBus] delete expired data occur error");
             }
         }
     }

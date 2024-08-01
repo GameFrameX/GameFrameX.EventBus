@@ -16,20 +16,14 @@ namespace Shashlik.EventBus
         /// <param name="items">附加数据</param>
         /// <param name="descriptor">事件处理描述器</param>
         /// <param name="cancellationToken">取消token</param>
-        public Task<HandleResult> HandleAsync(
-            MessageStorageModel messageStorageModel,
-            IDictionary<string, string> items,
-            EventHandlerDescriptor descriptor,
-            CancellationToken cancellationToken);
+        public Task<HandleResult> HandleAsync(MessageStorageModel messageStorageModel, IDictionary<string, string> items, EventHandlerDescriptor descriptor, CancellationToken cancellationToken);
 
         /// <summary>
         /// 锁定数据并事件处理执行
         /// </summary>
-        /// <param name="storageId"></param>
+        /// <param name="storageId">存储id</param>
         /// <param name="cancellationToken">取消token</param>
         /// <returns></returns>
-        public Task<HandleResult> LockingHandleAsync(
-            string storageId,
-            CancellationToken cancellationToken = default);
+        public Task<HandleResult> LockingHandleAsync(string storageId, CancellationToken cancellationToken = default);
     }
 }

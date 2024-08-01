@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
@@ -12,31 +12,31 @@ namespace Shashlik.EventBus.DefaultImpl
 {
     public class DefaultReceivedHandler : IReceivedHandler
     {
-        private IMessageStorage MessageStorage { get; }
-        private IOptions<EventBusOptions> Options { get; }
-        private ILogger<DefaultReceivedHandler> Logger { get; }
-        private IEventHandlerInvoker EventHandlerInvoker { get; }
-        private IEventHandlerFindProvider EventHandlerFindProvider { get; }
-        private IMessageSerializer MessageSerializer { get; }
-
-        public DefaultReceivedHandler(IMessageStorage messageStorage, IOptions<EventBusOptions> options,
-            ILogger<DefaultReceivedHandler> logger, IEventHandlerInvoker eventHandlerInvoker,
-            IEventHandlerFindProvider eventHandlerFindProvider, IMessageSerializer messageSerializer)
+        public DefaultReceivedHandler(IMessageStorage messageStorage,           IOptions<EventBusOptions> options,
+            ILogger<DefaultReceivedHandler>           logger,                   IEventHandlerInvoker      eventHandlerInvoker,
+            IEventHandlerFindProvider                 eventHandlerFindProvider, IMessageSerializer        messageSerializer)
         {
-            MessageStorage = messageStorage;
-            Options = options;
-            Logger = logger;
-            EventHandlerInvoker = eventHandlerInvoker;
+            MessageStorage           = messageStorage;
+            Options                  = options;
+            Logger                   = logger;
+            EventHandlerInvoker      = eventHandlerInvoker;
             EventHandlerFindProvider = eventHandlerFindProvider;
-            MessageSerializer = messageSerializer;
+            MessageSerializer        = messageSerializer;
         }
 
+        private IMessageStorage                 MessageStorage           { get; }
+        private IOptions<EventBusOptions>       Options                  { get; }
+        private ILogger<DefaultReceivedHandler> Logger                   { get; }
+        private IEventHandlerInvoker            EventHandlerInvoker      { get; }
+        private IEventHandlerFindProvider       EventHandlerFindProvider { get; }
+        private IMessageSerializer              MessageSerializer        { get; }
+
         public async Task<HandleResult> HandleAsync(MessageStorageModel messageStorageModel,
-            IDictionary<string, string> items,
-            EventHandlerDescriptor descriptor, CancellationToken cancellationToken)
+            IDictionary<string, string>                                 items,
+            EventHandlerDescriptor                                      descriptor, CancellationToken cancellationToken)
         {
             return await HandleAsync(messageStorageModel.Id, messageStorageModel, items, descriptor, false,
-                cancellationToken);
+                                     cancellationToken);
         }
 
         public async Task<HandleResult> LockingHandleAsync(string id, CancellationToken cancellationToken = default)
@@ -44,13 +44,7 @@ namespace Shashlik.EventBus.DefaultImpl
             return await HandleAsync(id, null, null, null, true, cancellationToken);
         }
 
-        private async Task<HandleResult> HandleAsync(
-            string id,
-            MessageStorageModel? messageStorageModel,
-            IDictionary<string, string>? items,
-            EventHandlerDescriptor? descriptor,
-            bool requireLock,
-            CancellationToken cancellationToken)
+        private async Task<HandleResult> HandleAsync(string id, MessageStorageModel messageStorageModel, IDictionary<string, string> items, EventHandlerDescriptor descriptor, bool requireLock, CancellationToken cancellationToken)
         {
             try
             {
@@ -82,12 +76,12 @@ namespace Shashlik.EventBus.DefaultImpl
                     await EventHandlerInvoker.InvokeAsync(messageStorageModel, items, descriptor).ConfigureAwait(false);
                     // 消息处理没问题就更新数据库状态
                     await MessageStorage.UpdateReceivedAsync(
-                            messageStorageModel.Id,
-                            MessageStatus.Succeeded,
-                            ++messageStorageModel.RetryCount,
-                            DateTimeOffset.Now.AddHours(Options.Value.SucceedExpireHour),
-                            cancellationToken)
-                        .ConfigureAwait(false);
+                                            messageStorageModel.Id,
+                                            MessageStatus.Succeeded,
+                                            ++messageStorageModel.RetryCount,
+                                            DateTimeOffset.Now.AddHours(Options.Value.SucceedExpireHour),
+                                            cancellationToken)
+                                        .ConfigureAwait(false);
                 }
 
                 return new HandleResult(true);
@@ -103,12 +97,12 @@ namespace Shashlik.EventBus.DefaultImpl
                 try
                 {
                     await MessageStorage.UpdateReceivedAsync(
-                            messageStorageModel.Id,
-                            MessageStatus.Failed,
-                            ++messageStorageModel.RetryCount,
-                            null,
-                            cancellationToken)
-                        .ConfigureAwait(false);
+                                            messageStorageModel.Id,
+                                            MessageStatus.Failed,
+                                            ++messageStorageModel.RetryCount,
+                                            null,
+                                            cancellationToken)
+                                        .ConfigureAwait(false);
                 }
                 catch (Exception ex1)
                 {
@@ -116,7 +110,7 @@ namespace Shashlik.EventBus.DefaultImpl
                 }
 
                 Logger.LogError(ex,
-                    $"[EventBus] message receive occur error, will try again later, event: {descriptor.EventName}, handler: {descriptor.EventHandlerName}, msgId: {messageStorageModel.MsgId}");
+                                $"[EventBus] message receive occur error, will try again later, event: {descriptor.EventName}, handler: {descriptor.EventHandlerName}, msgId: {messageStorageModel.MsgId}");
 
                 return new HandleResult(false, messageStorageModel);
             }

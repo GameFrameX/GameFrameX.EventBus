@@ -1,7 +1,7 @@
 ﻿@using System.Reflection
 @using Shashlik.EventBus.Dashboard
 @model Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Models.MessageViewModel
-@inject  UrlService UrlService
+@inject  UrlService                                                                                 UrlService
 
 <div class="container-fluid">
     <div class="row">
@@ -11,7 +11,7 @@
                     @foreach (var kv in Model.StatusCount)
                     {
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="@UrlService.CurrentUrl("status", kv.Key)">@kv.Key</a>
+                            <a href="@UrlService.CurrentUrl("status", kv.Key.ToString())">@kv.Key</a>
                             <span class="badge bg-primary rounded-pill">@kv.Value</span>
                         </li>
                     }
@@ -154,6 +154,7 @@
                                 {
                                     continue;
                                 }
+
                                 <li class="page-item @(Model.PageIndex == p ? "disabled" : "")">
                                     <a class="page-link" href="@UrlService.CurrentUrl("pageIndex", p.ToString())">@p</a>
                                 </li>

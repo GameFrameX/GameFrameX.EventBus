@@ -68,7 +68,7 @@ namespace Shashlik.EventBus
         /// <summary>
         /// 状态
         /// </summary>
-        public string Status { get; set; }
+        public MessageStatus Status { get; set; }
 
         /// <summary>
         /// 是否已锁定
