@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\GameFrameX.Shashlik.EventBus\GameFrameX.Shashlik.EventBus.csproj" />
         <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj"/>
         <ProjectReference Include="..\Shashlik.EventBus\Shashlik.EventBus.csproj"/>
     </ItemGroup>

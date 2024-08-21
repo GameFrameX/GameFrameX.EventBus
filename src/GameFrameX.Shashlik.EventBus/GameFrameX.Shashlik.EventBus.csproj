@@ -5,6 +5,7 @@
         <Nullable>disable</Nullable>
         <IsPackable>true</IsPackable>
         <LangVersion>9</LangVersion>
+        <RootNamespace>Shashlik.EventBus</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,6 +15,6 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-        <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj" />
+        <ProjectReference Include="..\GameFrameX.Shashlik.EventBus.Abstractions\GameFrameX.Shashlik.EventBus.Abstractions.csproj" />
     </ItemGroup>
 </Project>

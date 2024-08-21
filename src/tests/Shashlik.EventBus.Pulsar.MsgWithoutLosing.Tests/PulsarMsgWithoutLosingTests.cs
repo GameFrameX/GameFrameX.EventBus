@@ -6,7 +6,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.Pulsar.MsgWithoutLosing.Tests
 {
-    [Collection("Shashlik.EventBus.Pulsar.MsgWithoutLosing.Tests")]
+    [Collection("GameFrameX.Shashlik.EventBus.Pulsar.MsgWithoutLosing.Tests")]
     public class PulsarMsgWithoutLosingTests : TestBase<MsgWithoutLosingStartup>
     {
         public PulsarMsgWithoutLosingTests(TestWebApplicationFactory<MsgWithoutLosingStartup> factory,

@@ -6,8 +6,8 @@
         <Nullable>disable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj"/>
-        <ProjectReference Include="..\Shashlik.EventBus\Shashlik.EventBus.csproj"/>
+        <ProjectReference Include="..\GameFrameX.Shashlik.EventBus.Abstractions\GameFrameX.Shashlik.EventBus.Abstractions.csproj" />
+        <ProjectReference Include="..\GameFrameX.Shashlik.EventBus\GameFrameX.Shashlik.EventBus.csproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Dapper" Version="2.0.123"/>

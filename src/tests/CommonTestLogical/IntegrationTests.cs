@@ -190,7 +190,7 @@ namespace CommonTestLogical
             }
 
 
-            var msgs = await MessageStorage.SearchPublishedAsync("", "", 0, 10000, default);
+            var msgs = await MessageStorage.SearchPublishedAsync("", MessageStatus.None, 0, 10000, default);
             msgs.Any(r => r.EventBody.DeserializeJson<JObject>()["Name"]!.Value<string>() == testEvent.Name)
                 .ShouldBeFalse();
         }
@@ -205,7 +205,7 @@ namespace CommonTestLogical
                 scope.Complete();
             }
 
-            var msgs = await MessageStorage.SearchPublishedAsync("", "", 0, 10000, default);
+            var msgs = await MessageStorage.SearchPublishedAsync("", MessageStatus.None, 0, 10000, default);
             msgs.Any(r => r.EventBody.DeserializeJson<JObject>()["Name"]!.Value<string>() == testEvent.Name)
                 .ShouldBeTrue();
         }

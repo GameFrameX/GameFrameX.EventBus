@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
     </PropertyGroup>
@@ -23,6 +23,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\Shashlik.EventBus.Storage.MemoryQueue\Shashlik.EventBus.Storage.MemoryQueue.csproj" />
+        <ProjectReference Include="..\..\Shashlik.EventBus.Storage.MySql\Shashlik.EventBus.Storage.MySql.csproj" />
         <ProjectReference Include="..\CommonTestLogical\CommonTestLogical.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.Extensions.EfCore\Shashlik.EventBus.Extensions.EfCore.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.MemoryQueue\Shashlik.EventBus.MemoryQueue.csproj" />

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
     </PropertyGroup>
@@ -24,6 +24,8 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\Shashlik.EventBus.Redis\Shashlik.EventBus.Redis.csproj" />
+        <ProjectReference Include="..\..\Shashlik.EventBus.Storage.MySql\Shashlik.EventBus.Storage.MySql.csproj" />
+        <ProjectReference Include="..\..\Shashlik.EventBus.Storage.Redis\Shashlik.EventBus.Storage.Redis.csproj" />
         <ProjectReference Include="..\CommonTestLogical\CommonTestLogical.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.Extensions.EfCore\Shashlik.EventBus.Extensions.EfCore.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.Kafka\Shashlik.EventBus.Kafka.csproj" />

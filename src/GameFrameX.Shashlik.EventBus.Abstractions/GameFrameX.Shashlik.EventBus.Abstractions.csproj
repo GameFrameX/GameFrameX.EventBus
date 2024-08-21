@@ -5,6 +5,7 @@
     <IsPackable>true</IsPackable>
     <Nullable>disable</Nullable>
     <LangVersion>9</LangVersion>
+    <RootNamespace>Shashlik.EventBus.Abstractions</RootNamespace>
   </PropertyGroup>
 
 </Project>

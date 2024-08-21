@@ -6,7 +6,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.Redis.MsgWithoutLosing.Tests
 {
-    [Collection("Shashlik.EventBus.Redis.MsgWithoutLosing.Tests")]
+    [Collection("GameFrameX.Shashlik.EventBus.Redis.MsgWithoutLosing.Tests")]
     public class RedisMsgWithoutLosingTests : TestBase<MsgWithoutLosingStartup>
     {
         public RedisMsgWithoutLosingTests(TestWebApplicationFactory<MsgWithoutLosingStartup> factory,

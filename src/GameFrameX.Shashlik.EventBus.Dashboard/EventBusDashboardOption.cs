@@ -6,7 +6,7 @@
     public class EventBusDashboardOption
     {
         public const string DefaultUrlPrefix  = "/eventBus";
-        public const string DataProtectorName = "Shashlik.EventBus.Dashboard";
+        public const string DataProtectorName = "GameFrameX.GameFrameX.Shashlik.EventBus.Dashboard";
         public const string DefaultCookieName = "shashlik-eventbus-secret";
         private      string _urlPrefix        = DefaultUrlPrefix;
 

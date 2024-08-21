@@ -15,7 +15,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.Tests
 {
-    [Collection("Shashlik.EventBus.Tests")]
+    [Collection("GameFrameX.Shashlik.EventBus.Tests")]
     public class BaseTests : TestBase<Startup>
     {
         public BaseTests(TestWebApplicationFactory<Startup> factory, ITestOutputHelper testOutputHelper) : base(factory,
@@ -134,7 +134,7 @@ namespace Shashlik.EventBus.Tests
         [Fact]
         public void MsgIdTests()
         {
-            var msgIdGenerator = GetService<IMsgIdGenerator>();
+            var msgIdGenerator = GetService<IMessageIdGenerator>();
             msgIdGenerator.GenerateId().Length.ShouldBe(32);
             ConcurrentBag<string> list = new ConcurrentBag<string>();
             Parallel.For(0, 100000, item => { list.Add(msgIdGenerator.GenerateId()); });

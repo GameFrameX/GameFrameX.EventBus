@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
-using Shashlik.EventBus.MemoryQueue;
+using Shashlik.EventBus.Storage.MemoryQueue;
 using Shashlik.Kernel;
 using Shashlik.Utils.Extensions;
 

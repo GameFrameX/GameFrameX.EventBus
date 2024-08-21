@@ -102,7 +102,7 @@ public static class DashboardBuilderExtensions
         app.UseStaticFiles(new StaticFileOptions
         {
             FileProvider = new EmbeddedFileProvider(typeof(DashboardBuilderExtensions).Assembly,
-                                                    "Shashlik.EventBus.Dashboard.Resource"),
+                                                    "GameFrameX.GameFrameX.Shashlik.EventBus.Dashboard.Resource"),
             RequestPath = option.UrlPrefix + "/static",
         });
         app.UseEndpoints(e =>

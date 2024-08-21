@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Shashlik.EventBus.MySql;
+using Shashlik.EventBus.Storage.MySql;
+using Shashlik.EventBus.Storage.Redis;
 using Shashlik.Kernel;
 using Shashlik.Utils.Extensions;
 
