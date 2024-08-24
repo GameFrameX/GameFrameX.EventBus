@@ -22,8 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Shashlik.EventBus.Storage.MemoryQueue\Shashlik.EventBus.Storage.MemoryQueue.csproj" />
-        <ProjectReference Include="..\..\Shashlik.EventBus.Storage.MemoryStorage\Shashlik.EventBus.Storage.MemoryStorage.csproj" />
+        <ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Storage.MemoryQueue\GameFrameX.Shashlik.EventBus.Storage.MemoryQueue.csproj" />
+        <ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Storage.MemoryStorage\GameFrameX.Shashlik.EventBus.Storage.MemoryStorage.csproj" />
         <ProjectReference Include="..\CommonTestLogical\CommonTestLogical.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.MemoryQueue\Shashlik.EventBus.MemoryQueue.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.MemoryStorage\Shashlik.EventBus.MemoryStorage.csproj" />

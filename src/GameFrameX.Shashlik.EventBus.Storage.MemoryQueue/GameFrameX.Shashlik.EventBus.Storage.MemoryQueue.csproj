@@ -4,16 +4,12 @@
         <TargetFramework>net8.0</TargetFramework>
         <IsPackable>true</IsPackable>
         <Nullable>disable</Nullable>
+        <RootNamespace>Shashlik.EventBus.Storage.MemoryQueue</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0"/>
-        <PackageReference Include="Npgsql" Version="6.0.6"/>
-    </ItemGroup>
-
-    <ItemGroup>
+        <ProjectReference Include="..\GameFrameX.Shashlik.EventBus\GameFrameX.Shashlik.EventBus.csproj" />
         <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj"/>
-        <ProjectReference Include="..\Shashlik.EventBus.RelationDbStorage\Shashlik.EventBus.RelationDbStorage.csproj"/>
         <ProjectReference Include="..\Shashlik.EventBus\Shashlik.EventBus.csproj"/>
     </ItemGroup>
 

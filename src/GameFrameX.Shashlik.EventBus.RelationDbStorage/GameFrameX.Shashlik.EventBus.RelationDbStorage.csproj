@@ -4,16 +4,13 @@
         <TargetFramework>net8.0</TargetFramework>
         <IsPackable>true</IsPackable>
         <Nullable>disable</Nullable>
-        <LangVersion>9</LangVersion>
+        <RootNamespace>Shashlik.EventBus.RelationDbStorage</RootNamespace>
     </PropertyGroup>
-
     <ItemGroup>
-        <ProjectReference Include="..\Shashlik.EventBus.RelationDbStorage\Shashlik.EventBus.RelationDbStorage.csproj"/>
+        <ProjectReference Include="..\GameFrameX.Shashlik.EventBus.Abstractions\GameFrameX.Shashlik.EventBus.Abstractions.csproj" />
         <ProjectReference Include="..\GameFrameX.Shashlik.EventBus\GameFrameX.Shashlik.EventBus.csproj" />
     </ItemGroup>
-
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0"/>
+        <PackageReference Include="Dapper" Version="2.0.123"/>
     </ItemGroup>
-
 </Project>

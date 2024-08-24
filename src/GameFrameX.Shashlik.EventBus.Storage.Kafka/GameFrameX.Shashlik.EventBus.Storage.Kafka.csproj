@@ -4,12 +4,17 @@
         <TargetFramework>net8.0</TargetFramework>
         <IsPackable>true</IsPackable>
         <Nullable>disable</Nullable>
+        <RootNamespace>Shashlik.EventBus.Storage.Kafka</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\GameFrameX.Shashlik.EventBus\GameFrameX.Shashlik.EventBus.csproj" />
         <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj"/>
         <ProjectReference Include="..\Shashlik.EventBus\Shashlik.EventBus.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Confluent.Kafka" Version="1.9.2"/>
     </ItemGroup>
 
 </Project>

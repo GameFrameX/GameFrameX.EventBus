@@ -4,18 +4,12 @@
         <TargetFramework>net8.0</TargetFramework>
         <IsPackable>true</IsPackable>
         <Nullable>disable</Nullable>
+        <RootNamespace>Shashlik.EventBus.Storage.MemoryStorage</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\GameFrameX.Shashlik.EventBus\GameFrameX.Shashlik.EventBus.csproj" />
         <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj"/>
-        <ProjectReference Include="..\Shashlik.EventBus.RelationDbStorage\Shashlik.EventBus.RelationDbStorage.csproj"/>
         <ProjectReference Include="..\Shashlik.EventBus\Shashlik.EventBus.csproj"/>
     </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="MongoDB.Bson" Version="2.13.2"/>
-        <PackageReference Include="MongoDB.Driver" Version="2.13.2"/>
-    </ItemGroup>
-
-
 </Project>

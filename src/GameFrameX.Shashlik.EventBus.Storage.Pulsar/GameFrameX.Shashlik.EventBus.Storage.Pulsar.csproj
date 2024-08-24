@@ -4,18 +4,17 @@
         <TargetFramework>net8.0</TargetFramework>
         <IsPackable>true</IsPackable>
         <Nullable>disable</Nullable>
+        <RootNamespace>Shashlik.EventBus.Storage.Pulsar</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\GameFrameX.Shashlik.EventBus\GameFrameX.Shashlik.EventBus.csproj" />
         <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj"/>
-        <ProjectReference Include="..\Shashlik.EventBus.RelationDbStorage\Shashlik.EventBus.RelationDbStorage.csproj"/>
         <ProjectReference Include="..\Shashlik.EventBus\Shashlik.EventBus.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Dapper" Version="2.0.123"/>
-        <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.5"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0"/>
+        <PackageReference Include="Pulsar.Client" Version="2.10.3"/>
     </ItemGroup>
 
 </Project>

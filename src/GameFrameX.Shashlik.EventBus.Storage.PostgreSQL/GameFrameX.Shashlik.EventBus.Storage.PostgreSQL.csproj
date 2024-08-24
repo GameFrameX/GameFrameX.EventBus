@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\common.xml"/>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <IsPackable>true</IsPackable>
+        <Nullable>disable</Nullable>
+        <RootNamespace>Shashlik.EventBus.Storage.PostgreSQL</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0"/>
+        <PackageReference Include="Npgsql" Version="6.0.6"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj"/>
+        <ProjectReference Include="..\GameFrameX.Shashlik.EventBus.RelationDbStorage\GameFrameX.Shashlik.EventBus.RelationDbStorage.csproj" />
+        <ProjectReference Include="..\Shashlik.EventBus\Shashlik.EventBus.csproj"/>
+    </ItemGroup>
+
+</Project>

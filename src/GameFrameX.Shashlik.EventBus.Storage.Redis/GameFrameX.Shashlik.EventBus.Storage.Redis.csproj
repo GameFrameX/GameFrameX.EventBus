@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <IsPackable>true</IsPackable>
         <Nullable>disable</Nullable>
+        <RootNamespace>Shashlik.EventBus.Storage.Redis</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="RabbitMQ.Client" Version="6.4.0"/>
+        <PackageReference Include="FreeRedis" Version="1.0.2"/>
     </ItemGroup>
 
 </Project>

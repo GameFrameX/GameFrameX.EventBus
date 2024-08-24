@@ -22,10 +22,10 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\Shashlik.EventBus.Redis\Shashlik.EventBus.Redis.csproj" />
-        <ProjectReference Include="..\..\Shashlik.EventBus.Storage.MemoryStorage\Shashlik.EventBus.Storage.MemoryStorage.csproj" />
-        <ProjectReference Include="..\..\Shashlik.EventBus.Storage.Redis\Shashlik.EventBus.Storage.Redis.csproj" />
+        <ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Storage.MemoryStorage\GameFrameX.Shashlik.EventBus.Storage.MemoryStorage.csproj" />
+        <ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Storage.Redis\GameFrameX.Shashlik.EventBus.Storage.Redis.csproj" />
         <ProjectReference Include="..\CommonTestLogical\CommonTestLogical.csproj" />
-        <ProjectReference Include="..\..\Shashlik.EventBus.Extensions.EfCore\Shashlik.EventBus.Extensions.EfCore.csproj" />
+        <ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Extensions.EfCore\GameFrameX.Shashlik.EventBus.Extensions.EfCore.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.MemoryStorage\Shashlik.EventBus.MemoryStorage.csproj" />
         
     </ItemGroup>
