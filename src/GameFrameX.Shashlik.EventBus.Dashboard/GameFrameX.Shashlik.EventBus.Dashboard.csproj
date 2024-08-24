@@ -8,7 +8,6 @@
         <OutputType>Library</OutputType>
         <IsPackable>true</IsPackable>
         <LangVersion>10</LangVersion>
-        <RootNamespace>Shashlik.EventBus.Dashboard</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

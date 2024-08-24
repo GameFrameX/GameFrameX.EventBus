@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
-namespace Shashlik.EventBus.Pulsar;
+namespace GameFrameX.Shashlik.EventBus.Storage.Pulsar;
 
 /// <summary>
 ///     消息发送处理类

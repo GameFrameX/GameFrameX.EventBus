@@ -1,11 +1,12 @@
 ﻿using System;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
-using Shashlik.EventBus.Abstractions;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.MongoDb;
+namespace GameFrameX.Shashlik.EventBus.Storage.MongoDb;
 
 public static class EventBusMongoDbExtensions
 {

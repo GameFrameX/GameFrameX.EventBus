@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace Shashlik.EventBus.Storage.SqlServer;
+namespace GameFrameX.Shashlik.EventBus.Storage.SqlServer;
 
 public class DefaultConnectionString : IConnectionString
 {

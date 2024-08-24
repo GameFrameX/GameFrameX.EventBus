@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Shashlik.EventBus.Abstractions;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 
 namespace Shashlik.EventBus
 {

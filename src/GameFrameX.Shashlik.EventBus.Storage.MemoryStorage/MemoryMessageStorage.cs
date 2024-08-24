@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Shashlik.EventBus.Abstractions;
+using GameFrameX.Shashlik.EventBus.Abstractions;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable ConvertIfStatementToSwitchExpression
 // ReSharper disable ConvertIfStatementToSwitchStatement
 // ReSharper disable RedundantIfElseBlock
 
-namespace Shashlik.EventBus.MemoryStorage;
+namespace GameFrameX.Shashlik.EventBus.Storage.MemoryStorage;
 
 public class MemoryMessageStorage : IMessageStorage
 {

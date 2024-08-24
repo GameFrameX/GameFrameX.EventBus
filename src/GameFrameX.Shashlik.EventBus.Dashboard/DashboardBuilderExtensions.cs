@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.FileProviders;
+﻿using GameFrameX.Shashlik.EventBus.Dashboard.Areas;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.Dashboard.Areas;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Dashboard;
+namespace GameFrameX.Shashlik.EventBus.Dashboard;
 
 public static class DashboardBuilderExtensions
 {

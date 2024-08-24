@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using System;
 
-namespace Shashlik.EventBus.Storage.SqlServer;
+namespace GameFrameX.Shashlik.EventBus.Storage.SqlServer;
 
 public class EventBusSqlServerOptions
 {

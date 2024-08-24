@@ -4,13 +4,14 @@ using System.Threading.Tasks;
 using FreeRedis;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
 // ReSharper disable AsyncVoidLambda
 
-namespace Shashlik.EventBus.Storage.Redis;
+namespace GameFrameX.Shashlik.EventBus.Storage.Redis;
 
 public class RedisMQEventSubscriber : IEventSubscriber
 {

@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
-using Shashlik.EventBus.Abstractions;
+using GameFrameX.Shashlik.EventBus.Abstractions;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.RelationDbStorage;
+namespace GameFrameX.Shashlik.EventBus.RelationDbStorage;
 
 /// <summary>
 ///     提供关系型数据库的一些默认方法

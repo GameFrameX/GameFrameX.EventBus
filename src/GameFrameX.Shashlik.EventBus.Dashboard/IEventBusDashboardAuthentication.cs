@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.Dashboard
+﻿namespace GameFrameX.Shashlik.EventBus.Dashboard
 {
     /// <summary>
     ///     EventBus认证用户请求

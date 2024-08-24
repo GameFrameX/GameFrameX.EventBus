@@ -1,4 +1,6 @@
-﻿namespace Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Models;
+﻿using Shashlik.EventBus;
+
+namespace GameFrameX.Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Models;
 
 public class MessageViewModel
 {

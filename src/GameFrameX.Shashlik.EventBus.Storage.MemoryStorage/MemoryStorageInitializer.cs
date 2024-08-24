@@ -1,7 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.MemoryStorage;
+namespace GameFrameX.Shashlik.EventBus.Storage.MemoryStorage;
 
 public class MemoryStorageInitializer : IMessageStorageInitializer
 {

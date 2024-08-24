@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.MemoryStorage;
+namespace GameFrameX.Shashlik.EventBus.Storage.MemoryStorage;
 
 public static class MemoryStorageExtensions
 {

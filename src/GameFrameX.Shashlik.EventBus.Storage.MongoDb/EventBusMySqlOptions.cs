@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.MongoDb;
+﻿namespace GameFrameX.Shashlik.EventBus.Storage.MongoDb;
 
 public class EventBusMongoDbOptions
 {

@@ -6,7 +6,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.Storage.RabbitMQ;
+namespace GameFrameX.Shashlik.EventBus.Storage.RabbitMQ;
 
 public class DefaultRabbitMQConnection : IRabbitMQConnection, IDisposable
 {

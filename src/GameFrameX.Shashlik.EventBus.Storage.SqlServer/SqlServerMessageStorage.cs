@@ -4,12 +4,13 @@ using System.Data;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using GameFrameX.Shashlik.EventBus.RelationDbStorage;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.RelationDbStorage;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.Storage.SqlServer;
+namespace GameFrameX.Shashlik.EventBus.Storage.SqlServer;
 
 public class SqlServerMessageStorage : RelationDbMessageStorageBase
 {

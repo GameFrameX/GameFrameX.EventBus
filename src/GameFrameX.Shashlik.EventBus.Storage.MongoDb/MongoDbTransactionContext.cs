@@ -1,7 +1,7 @@
-﻿using MongoDB.Driver;
-using Shashlik.EventBus.Abstractions;
+﻿using GameFrameX.Shashlik.EventBus.Abstractions;
+using MongoDB.Driver;
 
-namespace Shashlik.EventBus.MongoDb;
+namespace GameFrameX.Shashlik.EventBus.Storage.MongoDb;
 
 public class MongoDbTransactionContext : ITransactionContext
 {

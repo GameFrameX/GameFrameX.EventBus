@@ -1,11 +1,11 @@
 ﻿using CommonTestLogical.EfCore;
 using FreeRedis;
+using GameFrameX.Shashlik.EventBus.Storage.MySql;
+using GameFrameX.Shashlik.EventBus.Storage.Redis;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Shashlik.EventBus.Storage.MySql;
-using Shashlik.EventBus.Storage.Redis;
 using Shashlik.Kernel;
 using Shashlik.Utils.Extensions;
 

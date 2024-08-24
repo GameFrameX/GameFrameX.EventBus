@@ -1,9 +1,9 @@
 ﻿using System.Data;
-using Shashlik.EventBus.Abstractions;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 
 // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
 
-namespace Shashlik.EventBus.RelationDbStorage;
+namespace GameFrameX.Shashlik.EventBus.RelationDbStorage;
 
 public class RelationDbStorageTransactionContext : ITransactionContext
 {

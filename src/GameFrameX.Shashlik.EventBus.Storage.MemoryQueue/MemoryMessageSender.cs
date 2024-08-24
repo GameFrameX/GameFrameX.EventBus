@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.MemoryQueue;
+namespace GameFrameX.Shashlik.EventBus.Storage.MemoryQueue;
 
 /// <summary>
 ///     消息发送处理类

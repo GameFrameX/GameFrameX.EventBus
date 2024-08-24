@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CommonTestLogical;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.Abstractions;
 using Shouldly;
 using Xunit;
 using Xunit.Abstractions;

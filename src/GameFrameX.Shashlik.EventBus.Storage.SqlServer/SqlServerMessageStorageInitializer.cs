@@ -2,8 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.SqlServer;
+namespace GameFrameX.Shashlik.EventBus.Storage.SqlServer;
 
 public class SqlServerMessageStorageInitializer : IMessageStorageInitializer
 {

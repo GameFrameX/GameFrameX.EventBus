@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.Storage.Redis;
+﻿namespace GameFrameX.Shashlik.EventBus.Storage.Redis;
 
 internal static class RedisConstants
 {

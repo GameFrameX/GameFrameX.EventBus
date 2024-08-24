@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Models;
+﻿namespace GameFrameX.Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Models;
 
 public class SecretLoginModel
 {

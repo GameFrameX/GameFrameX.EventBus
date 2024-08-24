@@ -1,7 +1,7 @@
 ﻿using System;
 using Pulsar.Client.Api;
 
-namespace Shashlik.EventBus.Pulsar;
+namespace GameFrameX.Shashlik.EventBus.Storage.Pulsar;
 
 public class EventBusPulsarOptions
 {

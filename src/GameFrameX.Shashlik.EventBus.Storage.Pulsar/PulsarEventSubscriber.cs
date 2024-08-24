@@ -4,13 +4,14 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Pulsar.Client.Api;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
 // ReSharper disable AsyncVoidLambda
 
-namespace Shashlik.EventBus.Pulsar;
+namespace GameFrameX.Shashlik.EventBus.Storage.Pulsar;
 
 public class PulsarEventSubscriber : IEventSubscriber
 {

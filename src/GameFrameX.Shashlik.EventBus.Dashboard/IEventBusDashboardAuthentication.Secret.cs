@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Options;
 
-namespace Shashlik.EventBus.Dashboard
+namespace GameFrameX.Shashlik.EventBus.Dashboard
 {
     /// <summary>
     ///     默认提供的基于配置的secret进行认证类

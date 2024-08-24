@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 using Microsoft.Extensions.Options;
 using Shashlik.EventBus;
-using Shashlik.EventBus.Abstractions;
 using Shashlik.Kernel.Dependency;
 using Shouldly;
 

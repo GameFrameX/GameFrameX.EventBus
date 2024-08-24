@@ -2,11 +2,12 @@
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
-namespace Shashlik.EventBus.Storage.RabbitMQ;
+namespace GameFrameX.Shashlik.EventBus.Storage.RabbitMQ;
 
 /// <summary>
 ///     消息发送处理类

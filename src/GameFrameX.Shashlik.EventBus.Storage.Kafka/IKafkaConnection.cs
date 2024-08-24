@@ -1,7 +1,7 @@
 ﻿using System;
 using Confluent.Kafka;
 
-namespace Shashlik.EventBus.Storage.Kafka;
+namespace GameFrameX.Shashlik.EventBus.Storage.Kafka;
 
 public interface IKafkaConnection : IDisposable
 {

@@ -2,8 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.Redis;
+namespace GameFrameX.Shashlik.EventBus.Storage.Redis;
 
 /// <summary>
 ///     消息发送处理类

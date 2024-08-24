@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.Dashboard.Areas
+﻿namespace GameFrameX.Shashlik.EventBus.Dashboard.Areas
 {
     internal static class Consts
     {

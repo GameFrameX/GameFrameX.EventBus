@@ -1,9 +1,9 @@
 ﻿using System;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.Abstractions;
 using Shashlik.EventBus.DefaultImpl;
 
 // ReSharper disable ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract

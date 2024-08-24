@@ -2,8 +2,9 @@
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.MemoryQueue;
+namespace GameFrameX.Shashlik.EventBus.Storage.MemoryQueue;
 
 internal static class InternalMemoryQueue
 {

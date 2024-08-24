@@ -1,10 +1,10 @@
 ﻿using CommonTestLogical.EfCore;
+using GameFrameX.Shashlik.EventBus.Storage.MySql;
+using GameFrameX.Shashlik.EventBus.Storage.RabbitMQ;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Shashlik.EventBus.Storage.MySql;
-using Shashlik.EventBus.Storage.RabbitMQ;
 using Shashlik.Kernel;
 using Shashlik.Utils.Extensions;
 

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using GameFrameX.Shashlik.EventBus.Abstractions;
+using GameFrameX.Shashlik.EventBus.RelationDbStorage;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
-using Shashlik.EventBus.Abstractions;
-using Shashlik.EventBus.RelationDbStorage;
 
 // ReSharper disable CheckNamespace
 

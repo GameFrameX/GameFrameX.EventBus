@@ -1,8 +1,9 @@
 ﻿using CommonTestLogical;
+using GameFrameX.Shashlik.EventBus.Storage.MemoryQueue;
+using GameFrameX.Shashlik.EventBus.Storage.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Shashlik.EventBus.Storage.MemoryQueue;
 using Shashlik.Kernel;
 using Shashlik.Utils.Extensions;
 

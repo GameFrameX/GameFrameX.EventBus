@@ -4,13 +4,14 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
 // ReSharper disable AsyncVoidLambda
 
-namespace Shashlik.EventBus.Storage.RabbitMQ;
+namespace GameFrameX.Shashlik.EventBus.Storage.RabbitMQ;
 
 public class RabbitMQEventSubscriber : IEventSubscriber
 {

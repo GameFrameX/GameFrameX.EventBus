@@ -2,8 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Options;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.Sqlite;
+namespace GameFrameX.Shashlik.EventBus.Storage.Sqlite;
 
 public class SqliteMessageStorageInitializer : IMessageStorageInitializer
 {

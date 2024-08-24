@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.Extensions;
 
-namespace Shashlik.EventBus.Dashboard
+namespace GameFrameX.Shashlik.EventBus.Dashboard
 {
     public class UrlService
     {

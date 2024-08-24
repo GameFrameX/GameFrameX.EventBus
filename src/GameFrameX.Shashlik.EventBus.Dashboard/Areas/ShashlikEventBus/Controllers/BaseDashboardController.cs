@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Options;
 
-namespace Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Controllers;
+namespace GameFrameX.Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Controllers;
 
 [AllowAnonymous]
 [Area(Consts.AreaName)]

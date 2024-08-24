@@ -1,11 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable AssignNullToNotNullAttribute
 
-namespace Shashlik.EventBus.Storage.SqlServer;
+namespace GameFrameX.Shashlik.EventBus.Storage.SqlServer;
 
 public static class EventBusSqlServerExtensions
 {

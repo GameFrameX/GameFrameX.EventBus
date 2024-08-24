@@ -3,13 +3,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Confluent.Kafka;
 using Microsoft.Extensions.Logging;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
 // ReSharper disable SimplifyLinqExpressionUseAll
 
-namespace Shashlik.EventBus.Storage.Kafka;
+namespace GameFrameX.Shashlik.EventBus.Storage.Kafka;
 
 public class KafkaEventSubscriber : IEventSubscriber
 {

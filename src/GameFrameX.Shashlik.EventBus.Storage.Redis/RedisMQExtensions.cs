@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.Redis;
+namespace GameFrameX.Shashlik.EventBus.Storage.Redis;
 
 public static class RedisMQExtensions
 {

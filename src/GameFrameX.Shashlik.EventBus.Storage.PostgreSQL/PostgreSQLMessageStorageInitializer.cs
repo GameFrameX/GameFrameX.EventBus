@@ -2,8 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Npgsql;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.PostgreSQL;
+namespace GameFrameX.Shashlik.EventBus.Storage.PostgreSQL;
 
 internal class PostgreSQLMessageStorageInitializer : IMessageStorageInitializer
 {

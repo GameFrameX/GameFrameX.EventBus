@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.Dashboard
+﻿namespace GameFrameX.Shashlik.EventBus.Dashboard
 {
     /// <summary>
     ///     面板选项

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CommonTestLogical;
 using CommonTestLogical.EfCore;
 using CommonTestLogical.TestEvents;
+using GameFrameX.Shashlik.EventBus.Storage.MongoDb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;

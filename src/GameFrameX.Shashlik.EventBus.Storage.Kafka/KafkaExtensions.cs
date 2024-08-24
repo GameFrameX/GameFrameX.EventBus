@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.Kafka;
+namespace GameFrameX.Shashlik.EventBus.Storage.Kafka;
 
 public static class KafkaExtensions
 {

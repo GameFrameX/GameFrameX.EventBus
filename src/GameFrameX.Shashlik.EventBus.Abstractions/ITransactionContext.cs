@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.Abstractions
+﻿namespace GameFrameX.Shashlik.EventBus.Abstractions
 {
     /// <summary>
     /// 当前事务上下文抽象

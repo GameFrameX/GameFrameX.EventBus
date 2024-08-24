@@ -1,9 +1,9 @@
 ﻿using System.Data;
+using GameFrameX.Shashlik.EventBus.RelationDbStorage;
 using Microsoft.Extensions.Options;
 using MySqlConnector;
-using Shashlik.EventBus.RelationDbStorage;
 
-namespace Shashlik.EventBus.Storage.MySql;
+namespace GameFrameX.Shashlik.EventBus.Storage.MySql;
 
 public class MySqlMessageStorage : RelationDbMessageStorageBase
 {

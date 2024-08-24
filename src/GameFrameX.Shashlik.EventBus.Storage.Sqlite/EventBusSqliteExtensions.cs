@@ -1,9 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.Storage.Sqlite;
+namespace GameFrameX.Shashlik.EventBus.Storage.Sqlite;
 
 public static class EventBusSqliteExtensions
 {

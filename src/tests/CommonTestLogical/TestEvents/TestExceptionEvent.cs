@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 using Microsoft.Extensions.Logging;
 using Shashlik.EventBus;
-using Shashlik.EventBus.Abstractions;
 
 namespace CommonTestLogical.TestEvents
 {

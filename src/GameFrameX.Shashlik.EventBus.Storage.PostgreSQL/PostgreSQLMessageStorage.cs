@@ -1,10 +1,11 @@
 ﻿using System.Data;
+using GameFrameX.Shashlik.EventBus.RelationDbStorage;
 using Microsoft.Extensions.Options;
 using Npgsql;
-using Shashlik.EventBus.RelationDbStorage;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.Storage.PostgreSQL;
+namespace GameFrameX.Shashlik.EventBus.Storage.PostgreSQL;
 
 public class PostgreSQLMessageStorage : RelationDbMessageStorageBase
 {

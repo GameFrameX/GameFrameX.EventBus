@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Confluent.Kafka.Admin;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.Storage.Kafka;
+namespace GameFrameX.Shashlik.EventBus.Storage.Kafka;
 
 public class EventBusKafkaOptions
 {

@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.RabbitMQ;
+namespace GameFrameX.Shashlik.EventBus.Storage.RabbitMQ;
 
 public static class RabbitMQExtensions
 {

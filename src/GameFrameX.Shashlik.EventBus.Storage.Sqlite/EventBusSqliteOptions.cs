@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using System;
 
-namespace Shashlik.EventBus.Storage.Sqlite;
+namespace GameFrameX.Shashlik.EventBus.Storage.Sqlite;
 
 public class EventBusSqliteOptions
 {

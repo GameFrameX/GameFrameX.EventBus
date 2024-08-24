@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Transactions;
-using Shashlik.EventBus.Abstractions;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 
 namespace Shashlik.EventBus
 {

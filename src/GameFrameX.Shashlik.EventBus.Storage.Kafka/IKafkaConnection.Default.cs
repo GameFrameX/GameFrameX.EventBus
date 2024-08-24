@@ -6,7 +6,7 @@ using Confluent.Kafka;
 using Confluent.Kafka.Admin;
 using Microsoft.Extensions.Options;
 
-namespace Shashlik.EventBus.Storage.Kafka;
+namespace GameFrameX.Shashlik.EventBus.Storage.Kafka;
 
 public class DefaultKafkaConnection : IKafkaConnection
 {

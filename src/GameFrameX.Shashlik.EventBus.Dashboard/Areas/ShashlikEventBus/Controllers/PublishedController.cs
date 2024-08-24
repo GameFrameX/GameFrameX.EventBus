@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GameFrameX.Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Models;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Controllers;
+namespace GameFrameX.Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Controllers;
 
 public class PublishedController : BaseDashboardController
 {

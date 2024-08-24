@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.Abstractions;
 
 namespace Shashlik.EventBus.DefaultImpl
 {

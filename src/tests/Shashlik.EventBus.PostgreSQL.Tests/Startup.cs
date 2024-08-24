@@ -1,11 +1,11 @@
 ﻿using CommonTestLogical;
 using CommonTestLogical.EfCore;
+using GameFrameX.Shashlik.EventBus.Storage.MemoryQueue;
+using GameFrameX.Shashlik.EventBus.Storage.PostgreSQL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Shashlik.EventBus.Storage.MemoryQueue;
-using Shashlik.EventBus.Storage.PostgreSQL;
 using Shashlik.Kernel;
 using Shashlik.Utils.Extensions;
 

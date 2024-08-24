@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.Storage.SqlServer;
+﻿namespace GameFrameX.Shashlik.EventBus.Storage.SqlServer;
 
 public interface IConnectionString
 {

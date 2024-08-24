@@ -4,7 +4,6 @@
         <TargetFramework>net8.0</TargetFramework>
         <IsPackable>true</IsPackable>
         <Nullable>disable</Nullable>
-        <RootNamespace>Shashlik.EventBus.Storage.Pulsar</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

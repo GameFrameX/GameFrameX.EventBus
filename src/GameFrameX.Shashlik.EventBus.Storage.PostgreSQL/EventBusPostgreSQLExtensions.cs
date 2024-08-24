@@ -1,9 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.Storage.PostgreSQL;
+namespace GameFrameX.Shashlik.EventBus.Storage.PostgreSQL;
 
 /// <summary>
 ///     PostgreSql存储扩展

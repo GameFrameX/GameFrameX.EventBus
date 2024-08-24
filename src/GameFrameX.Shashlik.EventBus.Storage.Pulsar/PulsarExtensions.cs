@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Pulsar;
+namespace GameFrameX.Shashlik.EventBus.Storage.Pulsar;
 
 public static class PulsarExtensions
 {

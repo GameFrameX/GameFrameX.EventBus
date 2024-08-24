@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using GameFrameX.Shashlik.EventBus.Abstractions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.Abstractions;
 
 // ReSharper disable TemplateIsNotCompileTimeConstantProblem
 

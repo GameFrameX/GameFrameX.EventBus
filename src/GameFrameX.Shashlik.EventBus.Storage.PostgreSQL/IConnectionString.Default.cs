@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.Storage.PostgreSQL;
+namespace GameFrameX.Shashlik.EventBus.Storage.PostgreSQL;
 
 public class DefaultConnectionString : IConnectionString
 {

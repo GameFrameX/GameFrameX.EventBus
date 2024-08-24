@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using GameFrameX.Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Models;
 
-namespace Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Controllers;
+namespace GameFrameX.Shashlik.EventBus.Dashboard.Areas.ShashlikEventBus.Controllers;
 
 /// <summary>
 ///     secret认证类

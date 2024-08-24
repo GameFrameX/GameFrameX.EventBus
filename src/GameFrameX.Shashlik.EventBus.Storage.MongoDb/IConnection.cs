@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace Shashlik.EventBus.MongoDb;
+namespace GameFrameX.Shashlik.EventBus.Storage.MongoDb;
 
 public interface IConnection
 {

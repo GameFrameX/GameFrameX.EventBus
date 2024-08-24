@@ -1,5 +1,5 @@
-﻿using Shashlik.EventBus;
-using Shashlik.EventBus.Abstractions;
+﻿using GameFrameX.Shashlik.EventBus.Abstractions;
+using Shashlik.EventBus;
 
 namespace CommonTestLogical.TestEvents
 {

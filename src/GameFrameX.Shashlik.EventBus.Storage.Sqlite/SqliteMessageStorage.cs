@@ -1,9 +1,9 @@
 ﻿using System.Data;
+using GameFrameX.Shashlik.EventBus.RelationDbStorage;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.RelationDbStorage;
 
-namespace Shashlik.EventBus.Storage.Sqlite;
+namespace GameFrameX.Shashlik.EventBus.Storage.Sqlite;
 
 public class SqliteMessageStorage : RelationDbMessageStorageBase
 {

@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Shashlik.EventBus.Utils;
 
-namespace Shashlik.EventBus.Storage.Sqlite;
+namespace GameFrameX.Shashlik.EventBus.Storage.Sqlite;
 
 public class DefaultConnectionString : IConnectionString
 {

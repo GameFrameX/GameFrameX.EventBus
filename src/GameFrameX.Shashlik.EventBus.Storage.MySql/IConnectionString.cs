@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.Storage.MySql;
+﻿namespace GameFrameX.Shashlik.EventBus.Storage.MySql;
 
 public interface IConnectionString
 {

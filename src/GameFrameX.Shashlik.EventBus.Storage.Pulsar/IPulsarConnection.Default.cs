@@ -5,7 +5,7 @@ using Microsoft.Extensions.Options;
 using Pulsar.Client.Api;
 using Pulsar.Client.Common;
 
-namespace Shashlik.EventBus.Pulsar;
+namespace GameFrameX.Shashlik.EventBus.Storage.Pulsar;
 
 public class DefaultPulsarConnection : IPulsarConnection, IAsyncDisposable
 {

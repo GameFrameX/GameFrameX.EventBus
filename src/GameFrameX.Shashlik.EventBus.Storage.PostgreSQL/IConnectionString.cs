@@ -1,4 +1,4 @@
-﻿namespace Shashlik.EventBus.Storage.PostgreSQL;
+﻿namespace GameFrameX.Shashlik.EventBus.Storage.PostgreSQL;
 
 public interface IConnectionString
 {

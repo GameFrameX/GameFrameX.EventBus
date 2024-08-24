@@ -2,11 +2,12 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Shashlik.EventBus;
 using Shashlik.EventBus.Utils;
 
 // ReSharper disable AsyncVoidLambda
 
-namespace Shashlik.EventBus.Storage.MemoryQueue;
+namespace GameFrameX.Shashlik.EventBus.Storage.MemoryQueue;
 
 public class MemoryEventSubscriber : IEventSubscriber
 {

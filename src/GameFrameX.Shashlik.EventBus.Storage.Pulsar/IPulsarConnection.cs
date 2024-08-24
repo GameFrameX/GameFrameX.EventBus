@@ -1,6 +1,6 @@
 ﻿using Pulsar.Client.Api;
 
-namespace Shashlik.EventBus.Pulsar;
+namespace GameFrameX.Shashlik.EventBus.Storage.Pulsar;
 
 public interface IPulsarConnection
 {

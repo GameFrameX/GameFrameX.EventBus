@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Shashlik.EventBus;
 
-namespace Shashlik.EventBus.Storage.MemoryQueue;
+namespace GameFrameX.Shashlik.EventBus.Storage.MemoryQueue;
 
 public static class MemoryQueueExtensions
 {

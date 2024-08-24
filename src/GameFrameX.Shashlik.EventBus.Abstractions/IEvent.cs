@@ -1,5 +1,5 @@
 ﻿
-namespace Shashlik.EventBus.Abstractions
+namespace GameFrameX.Shashlik.EventBus.Abstractions
 {
     /// <summary>
     /// 事件定义

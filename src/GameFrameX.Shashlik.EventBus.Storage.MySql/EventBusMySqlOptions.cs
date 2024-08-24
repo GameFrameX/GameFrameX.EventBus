@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using System;
 
-namespace Shashlik.EventBus.Storage.MySql;
+namespace GameFrameX.Shashlik.EventBus.Storage.MySql;
 
 public class EventBusMySqlOptions
 {

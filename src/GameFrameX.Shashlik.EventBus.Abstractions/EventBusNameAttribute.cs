@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shashlik.EventBus.Abstractions
+namespace GameFrameX.Shashlik.EventBus.Abstractions
 {
     /// <summary>
     /// 事件/事件处理名称定义
