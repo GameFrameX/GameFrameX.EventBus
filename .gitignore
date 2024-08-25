@@ -342,3 +342,4 @@ upload
 /src/Health.Api/nlog.config
 /nugetPackages
 /src/config.test.local.yaml
+.DS_Store
