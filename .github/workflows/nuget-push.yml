@@ -68,12 +68,16 @@ jobs:
           redis version: 6.2.7
 
       - name: Install dependencies
-        run: dotnet restore ./src/Shashlik.EventBus.sln
+        run: dotnet restore ./src/GameFrameX.Shashlik.EventBus.sln
+
       - name: Test
-        run: dotnet test ./src/Shashlik.EventBus.sln
+        run: dotnet test ./src/GameFrameX.Shashlik.EventBus.sln
+
       - name: Build
-        run: dotnet build ./src/Shashlik.EventBus.sln --configuration Release --no-restore
+        run: dotnet build ./src/GameFrameX.Shashlik.EventBus.sln --configuration Release --no-restore
+
       - name: Pack
-        run: dotnet pack ./src/Shashlik.EventBus.sln --configuration Release --no-restore --output ./nugetPackages
+        run: dotnet pack ./src/GameFrameX.Shashlik.EventBus.sln --configuration Release --no-restore --output ./nugetPackages
+
       - name: Publish
         run: dotnet nuget push "./nugetPackages/*.nupkg" -k ${{ secrets.NUGET }} -s https://api.nuget.org/v3/index.json
