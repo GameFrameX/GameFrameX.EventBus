@@ -1,9 +1,10 @@
 name: build and test
 
 on:
-  push:
-    branches: [ release ]
-
+  #  push:
+  #    branches: [ release ]
+  tags:
+    - "*"
 jobs:
   build:
 
@@ -14,7 +15,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1.7.2
         with:
-          dotnet-version: 6.0.100
+          dotnet-version: 8.x
 
       - name: Setup MySql
         uses: mirromutth/mysql-action@v1.1
