@@ -1,6 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-    <Import Project="..\..\common.xml"/>
-
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -9,7 +7,42 @@
         <IsPackable>true</IsPackable>
         <LangVersion>10</LangVersion>
     </PropertyGroup>
-
+    <PropertyGroup>
+        <PackageProjectUrl>https://github.com/GameFrameX/GameFrameX.EventBus</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/GameFrameX/GameFrameX.EventBus.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageTags>GameFrameX,Lib,Extension,Server,GameServer,EventBus</PackageTags>
+        <PackageReleaseNotes>https://gameframex.doc.alianblank.com/</PackageReleaseNotes>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <IsPackable>true</IsPackable>
+        <PackageIcon>logo.png</PackageIcon>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <PackageId>$(AssemblyName)</PackageId>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <IncludeSource>true</IncludeSource>
+        <Authors>dotnet-shashlik and other contributors;AlianBlank</Authors>
+        <Owners>dotnet-shashlik;AlianBlank</Owners>
+        <Copyright>dotnet-shashlik;AlianBlank;GameFrameX;Blank</Copyright>
+        <Title>$(AssemblyName)</Title>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="../../logo.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+            <Link>logo.png</Link>
+        </None>
+        <None Include="../../README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resource\bootstrap.bundle.min.js">
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>

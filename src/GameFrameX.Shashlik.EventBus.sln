@@ -9,7 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameFrameX.EventBus", "Game
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{D22B2A9A-73F7-46DF-8395-5874FD1447B6}"
 	ProjectSection(SolutionItems) = preProject
-		..\common.xml = ..\common.xml
 		..\.github\workflows\publish-nuget.yml = ..\.github\workflows\publish-nuget.yml
 	EndProjectSection
 EndProject
