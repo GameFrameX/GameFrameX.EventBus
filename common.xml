@@ -4,7 +4,7 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/dotnet-shashlik/shashlik.eventbus</RepositoryUrl>
         <PackageTags>shashlik</PackageTags>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
         <Authors>dotnet-shashlik</Authors>
         <Version>0.0.1</Version>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
