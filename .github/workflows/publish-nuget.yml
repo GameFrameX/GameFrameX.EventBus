@@ -1,8 +1,6 @@
 name: Publish NuGet
 
 on:
-  #  push:
-  #    branches: [ release ]
   push:
     tags:
       - "*"
@@ -19,14 +17,132 @@ jobs:
         with:
           dotnet-version: 8.0.300
 
+      - name: Install dotnet tool
+        run: dotnet tool install -g dotnetCampus.TagToVersion
+
+      - name: Set tag to version
+        run: dotnet TagToVersion -t ${{ github.ref }} -f Directory.Build.props
+
       - name: Install dependencies
-        run: dotnet restore ./src/GameFrameX.EventBus.sln
-
+        run: dotnet restore
       - name: Build
-        run: dotnet build ./src/GameFrameX.EventBus.sln --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore
 
-      - name: Pack
-        run: dotnet pack ./src/GameFrameX.EventBus.sln --configuration Release --no-restore --output ./nugetPackages
+      - name: Publish GameFrameX.EventBus
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus/GameFrameX.EventBus.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
 
-      - name: Publish
-        run: dotnet nuget push "./nugetPackages/*.nupkg" -k ${{ secrets.NUGET }} -s https://api.nuget.org/v3/index.json
+      - name: Publish GameFrameX.EventBus.Abstractions
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Abstractions/GameFrameX.EventBus.Abstractions.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Dashboard
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Dashboard/GameFrameX.EventBus.Dashboard.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: GameFrameX.EventBus.Extensions.EfCore
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Extensions.EfCore/GameFrameX.EventBus.Extensions.EfCore.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.RelationDbStorage
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.RelationDbStorage/GameFrameX.EventBus.RelationDbStorage.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.Kafka
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.Kafka/GameFrameX.EventBus.Storage.Kafka.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.MemoryQueue
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.MemoryQueue/GameFrameX.EventBus.Storage.MemoryQueue.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.MemoryStorage
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.MemoryStorage/GameFrameX.EventBus.Storage.MemoryStorage.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.MongoDb
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.MongoDb/GameFrameX.EventBus.Storage.MongoDb.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.MySql
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.MySql/GameFrameX.EventBus.Storage.MySql.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.PostgreSQL
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.PostgreSQL/GameFrameX.EventBus.Storage.PostgreSQL.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.Pulsar
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.Pulsar/GameFrameX.EventBus.Storage.Pulsar.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.RabbitMQ
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.RabbitMQ/GameFrameX.EventBus.Storage.RabbitMQ.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.Redis
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.Redis/GameFrameX.EventBus.Storage.Redis.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.Sqlite
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.Sqlite/GameFrameX.EventBus.Storage.Sqlite.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Dashboard
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Dashboard/GameFrameX.EventBus.Dashboard.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish GameFrameX.EventBus.Storage.SqlServer
+        uses: alianblank/publish-nuget@v1.0.2
+        with:
+          PROJECT_FILE_PATH: src/GameFrameX.EventBus.Storage.SqlServer/GameFrameX.EventBus.Storage.SqlServer.csproj
+          VERSION_FILE_PATH: Directory.Build.props
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
