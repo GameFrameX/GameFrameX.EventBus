@@ -1,5 +1,6 @@
-﻿using GameFrameX.Shashlik.EventBus.Storage.MemoryQueue;
-using GameFrameX.Shashlik.EventBus.Storage.MemoryStorage;
+﻿using GameFrameX.EventBus;
+using GameFrameX.EventBus.Storage.MemoryQueue;
+using GameFrameX.EventBus.Storage.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

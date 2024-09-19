@@ -1,6 +1,7 @@
 ﻿using CommonTestLogical.MsgWithoutLosing;
-using GameFrameX.Shashlik.EventBus.Storage.MemoryStorage;
-using GameFrameX.Shashlik.EventBus.Storage.RabbitMQ;
+using GameFrameX.EventBus;
+using GameFrameX.EventBus.Storage.MemoryStorage;
+using GameFrameX.EventBus.Storage.RabbitMQ;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

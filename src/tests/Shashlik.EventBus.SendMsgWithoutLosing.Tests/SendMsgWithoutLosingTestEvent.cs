@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GameFrameX.Shashlik.EventBus.Abstractions;
+using GameFrameX.EventBus.Abstractions;
 
 namespace Shashlik.EventBus.SendMsgWithoutLosing.Tests
 {

@@ -4,7 +4,8 @@ using System.Threading.Tasks;
 using CommonTestLogical;
 using CommonTestLogical.EfCore;
 using CommonTestLogical.TestEvents;
-using GameFrameX.Shashlik.EventBus.Storage.MongoDb;
+using GameFrameX.EventBus;
+using GameFrameX.EventBus.Storage.MongoDb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
@@ -15,7 +16,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.MongoDb.Tests
 {
-    [Collection("GameFrameX.Shashlik.EventBus.MongoDb.Tests")]
+    [Collection("GameFrameX.EventBus.MongoDb.Tests")]
     public class MongoDbTests : TestBase<Startup>
     {
         public MongoDbTests(TestWebApplicationFactory<Startup> factory, ITestOutputHelper testOutputHelper) : base(

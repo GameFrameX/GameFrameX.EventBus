@@ -5,7 +5,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.Sqlite.Tests
 {
-    [Collection("GameFrameX.Shashlik.EventBus.Sqlite.Tests")]
+    [Collection("GameFrameX.EventBus.Sqlite.Tests")]
     public class SqliteTests : TestBase<Startup>
     {
         public SqliteTests(TestWebApplicationFactory<Startup> factory, ITestOutputHelper testOutputHelper) : base(

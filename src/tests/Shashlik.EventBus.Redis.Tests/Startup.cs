@@ -1,7 +1,8 @@
 ﻿using CommonTestLogical.EfCore;
 using FreeRedis;
-using GameFrameX.Shashlik.EventBus.Storage.MySql;
-using GameFrameX.Shashlik.EventBus.Storage.Redis;
+using GameFrameX.EventBus;
+using GameFrameX.EventBus.Storage.MySql;
+using GameFrameX.EventBus.Storage.Redis;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

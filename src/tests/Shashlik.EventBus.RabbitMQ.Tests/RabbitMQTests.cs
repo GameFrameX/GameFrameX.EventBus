@@ -5,7 +5,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.RabbitMQ.Tests
 {
-    [Collection("GameFrameX.Shashlik.EventBus.RabbitMQ.Tests")]
+    [Collection("GameFrameX.EventBus.RabbitMQ.Tests")]
     public class RabbitMQTests : TestBase<Startup>
     {
         public RabbitMQTests(TestWebApplicationFactory<Startup> factory, ITestOutputHelper testOutputHelper)

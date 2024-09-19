@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\common.xml"/>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <IsPackable>true</IsPackable>
+        <Nullable>disable</Nullable>
+        <LangVersion>9</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\GameFrameX.EventBus.RelationDbStorage\GameFrameX.EventBus.RelationDbStorage.csproj" />
+        <ProjectReference Include="..\GameFrameX.EventBus\GameFrameX.EventBus.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0"/>
+    </ItemGroup>
+
+</Project>

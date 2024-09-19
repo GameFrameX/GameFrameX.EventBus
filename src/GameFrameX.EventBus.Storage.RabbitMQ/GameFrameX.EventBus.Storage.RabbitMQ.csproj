@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\common.xml"/>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <IsPackable>true</IsPackable>
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\GameFrameX.EventBus\GameFrameX.EventBus.csproj" />
+        <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj"/>
+        <ProjectReference Include="..\Shashlik.EventBus\Shashlik.EventBus.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="RabbitMQ.Client" Version="6.4.0"/>
+    </ItemGroup>
+
+</Project>

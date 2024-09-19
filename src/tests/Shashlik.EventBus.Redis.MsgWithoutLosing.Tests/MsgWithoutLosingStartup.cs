@@ -1,7 +1,8 @@
 ﻿using CommonTestLogical.MsgWithoutLosing;
 using FreeRedis;
-using GameFrameX.Shashlik.EventBus.Storage.MemoryStorage;
-using GameFrameX.Shashlik.EventBus.Storage.Redis;
+using GameFrameX.EventBus;
+using GameFrameX.EventBus.Storage.MemoryStorage;
+using GameFrameX.EventBus.Storage.Redis;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

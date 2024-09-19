@@ -5,17 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using CommonTestLogical;
 using CommonTestLogical.TestEvents;
-using GameFrameX.Shashlik.EventBus.Abstractions;
+using GameFrameX.EventBus;
+using GameFrameX.EventBus.Abstractions;
+using GameFrameX.EventBus.DefaultImpl;
+using GameFrameX.EventBus.Utils;
 using Microsoft.Extensions.Options;
-using Shashlik.EventBus.DefaultImpl;
-using Shashlik.EventBus.Utils;
 using Shouldly;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.Tests
 {
-    [Collection("GameFrameX.Shashlik.EventBus.Tests")]
+    [Collection("GameFrameX.EventBus.Tests")]
     public class BaseTests : TestBase<Startup>
     {
         public BaseTests(TestWebApplicationFactory<Startup> factory, ITestOutputHelper testOutputHelper) : base(factory,

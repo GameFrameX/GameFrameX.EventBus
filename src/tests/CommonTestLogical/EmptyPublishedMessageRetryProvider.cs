@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using GameFrameX.EventBus;
 using Shashlik.EventBus;
 
 namespace CommonTestLogical

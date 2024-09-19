@@ -22,10 +22,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Storage.MemoryStorage\GameFrameX.Shashlik.EventBus.Storage.MemoryStorage.csproj" />
-        <ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Storage.RabbitMQ\GameFrameX.Shashlik.EventBus.Storage.RabbitMQ.csproj" />
+        <ProjectReference Include="..\..\GameFrameX.EventBus\GameFrameX.EventBus.csproj" />
+        <ProjectReference Include="..\..\GameFrameX.EventBus.Storage.MemoryStorage\GameFrameX.EventBus.Storage.MemoryStorage.csproj" />
+        <ProjectReference Include="..\..\GameFrameX.EventBus.Storage.RabbitMQ\GameFrameX.EventBus.Storage.RabbitMQ.csproj" />
         <ProjectReference Include="..\CommonTestLogical\CommonTestLogical.csproj" />
-        <ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Extensions.EfCore\GameFrameX.Shashlik.EventBus.Extensions.EfCore.csproj" />
+        <ProjectReference Include="..\..\GameFrameX.EventBus.Extensions.EfCore\GameFrameX.EventBus.Extensions.EfCore.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.MemoryQueue\Shashlik.EventBus.MemoryQueue.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.MemoryStorage\Shashlik.EventBus.MemoryStorage.csproj" />
         <ProjectReference Include="..\..\Shashlik.EventBus.MySql\Shashlik.EventBus.MySql.csproj" />

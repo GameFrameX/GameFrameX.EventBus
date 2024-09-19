@@ -6,7 +6,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.RabbitMQ.MsgWithoutLosing.Tests
 {
-    [Collection("GameFrameX.Shashlik.EventBus.RabbitMQ.MsgWithoutLosing.Tests")]
+    [Collection("GameFrameX.EventBus.RabbitMQ.MsgWithoutLosing.Tests")]
     public class RabbitMsgWithoutLosingTests : TestBase<MsgWithoutLosingStartup>
     {
         public RabbitMsgWithoutLosingTests(TestWebApplicationFactory<MsgWithoutLosingStartup> factory,

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GameFrameX.Shashlik.EventBus.Abstractions;
+using GameFrameX.EventBus.Abstractions;
 using Microsoft.Extensions.Logging;
 using Shashlik.EventBus;
 

@@ -5,7 +5,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.Pulsar.Tests
 {
-    [Collection("GameFrameX.Shashlik.EventBus.Pulsar.Tests")]
+    [Collection("GameFrameX.EventBus.Pulsar.Tests")]
     public class PulsarTests : TestBase<Startup>
     {
         public PulsarTests(TestWebApplicationFactory<Startup> factory, ITestOutputHelper testOutputHelper) : base(

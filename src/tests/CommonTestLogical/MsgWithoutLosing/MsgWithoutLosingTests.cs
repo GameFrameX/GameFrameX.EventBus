@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using GameFrameX.Shashlik.EventBus.Abstractions;
+using GameFrameX.EventBus;
+using GameFrameX.EventBus.Abstractions;
 using Microsoft.Extensions.Options;
 using Shashlik.EventBus;
 using Shashlik.Kernel.Dependency;

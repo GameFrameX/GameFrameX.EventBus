@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CommonTestLogical;
-using GameFrameX.Shashlik.EventBus.Abstractions;
+using GameFrameX.EventBus;
+using GameFrameX.EventBus.Abstractions;
 using Microsoft.Extensions.Options;
 using Shouldly;
 using Xunit;
@@ -9,7 +10,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.SendMsgWithoutLosing.Tests
 {
-    [Collection("GameFrameX.Shashlik.EventBus.SendMsgWithoutLosing.Tests")]
+    [Collection("GameFrameX.EventBus.SendMsgWithoutLosing.Tests")]
     public class SendMsgWithoutLosingTests : TestBase<SendMsgWithoutLosingTestStartup>
     {
         public SendMsgWithoutLosingTests(TestWebApplicationFactory<SendMsgWithoutLosingTestStartup> factory,

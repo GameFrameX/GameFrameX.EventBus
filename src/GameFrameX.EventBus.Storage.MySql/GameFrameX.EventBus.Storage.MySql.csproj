@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\common.xml"/>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <IsPackable>true</IsPackable>
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Shashlik.EventBus.Abstractions\Shashlik.EventBus.Abstractions.csproj"/>
+        <ProjectReference Include="..\GameFrameX.EventBus.RelationDbStorage\GameFrameX.EventBus.RelationDbStorage.csproj" />
+        <ProjectReference Include="..\Shashlik.EventBus\Shashlik.EventBus.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0"/>
+        <PackageReference Include="MySqlConnector" Version="2.1.12"/>
+    </ItemGroup>
+
+</Project>

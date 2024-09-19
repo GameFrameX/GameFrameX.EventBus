@@ -1,6 +1,7 @@
 ﻿using CommonTestLogical.EfCore;
-using GameFrameX.Shashlik.EventBus.Storage.MySql;
-using GameFrameX.Shashlik.EventBus.Storage.Pulsar;
+using GameFrameX.EventBus;
+using GameFrameX.EventBus.Storage.MySql;
+using GameFrameX.EventBus.Storage.Pulsar;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

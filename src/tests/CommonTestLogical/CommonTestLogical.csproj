@@ -13,10 +13,10 @@
 		<PackageReference Include="MartinCostello.Logging.XUnit" Version="0.2.0" />
 		<PackageReference Include="xunit.extensibility.core" Version="2.4.0" />
 
-		<ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Abstractions\GameFrameX.Shashlik.EventBus.Abstractions.csproj" />
-		<ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.Extensions.EfCore\GameFrameX.Shashlik.EventBus.Extensions.EfCore.csproj" />
-		<ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus.RelationDbStorage\GameFrameX.Shashlik.EventBus.RelationDbStorage.csproj" />
-		<ProjectReference Include="..\..\GameFrameX.Shashlik.EventBus\GameFrameX.Shashlik.EventBus.csproj" />
+		<ProjectReference Include="..\..\GameFrameX.EventBus.Abstractions\GameFrameX.EventBus.Abstractions.csproj" />
+		<ProjectReference Include="..\..\GameFrameX.EventBus.Extensions.EfCore\GameFrameX.EventBus.Extensions.EfCore.csproj" />
+		<ProjectReference Include="..\..\GameFrameX.EventBus.RelationDbStorage\GameFrameX.EventBus.RelationDbStorage.csproj" />
+		<ProjectReference Include="..\..\GameFrameX.EventBus\GameFrameX.EventBus.csproj" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
 
 		<PackageReference Include="Shashlik.Kernel" Version="2.0.0-preview2" />

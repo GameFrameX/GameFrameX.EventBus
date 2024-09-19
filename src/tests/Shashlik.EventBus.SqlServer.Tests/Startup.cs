@@ -1,7 +1,8 @@
 ﻿using CommonTestLogical;
 using CommonTestLogical.EfCore;
-using GameFrameX.Shashlik.EventBus.Storage.MemoryQueue;
-using GameFrameX.Shashlik.EventBus.Storage.SqlServer;
+using GameFrameX.EventBus;
+using GameFrameX.EventBus.Storage.MemoryQueue;
+using GameFrameX.EventBus.Storage.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

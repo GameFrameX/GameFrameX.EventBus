@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using GameFrameX.EventBus;
 
 namespace Shashlik.EventBus.SendMsgWithoutLosing.Tests
 {

@@ -5,7 +5,7 @@ using Xunit.Abstractions;
 
 namespace Shashlik.EventBus.MySql.Tests
 {
-    [Collection("GameFrameX.Shashlik.EventBus.MySql.Tests")]
+    [Collection("GameFrameX.EventBus.MySql.Tests")]
     public class MySqlTests : TestBase<Startup>
     {
         public MySqlTests(TestWebApplicationFactory<Startup> factory, ITestOutputHelper testOutputHelper) : base(
