@@ -3,18 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameFrameX.EventBus.Abstractions", "GameFrameX.EventBus.Abstractions\GameFrameX.EventBus.Abstractions.csproj", "{CF90295E-F92C-4198-AAAA-9D219D42B0E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameFrameX.EventBus.Abstractions", "src\GameFrameX.EventBus.Abstractions\GameFrameX.EventBus.Abstractions.csproj", "{CF90295E-F92C-4198-AAAA-9D219D42B0E4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameFrameX.EventBus", "GameFrameX.EventBus\GameFrameX.EventBus.csproj", "{4F29E4F3-70F3-4C2A-B958-A60FF467626A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameFrameX.EventBus", "src\GameFrameX.EventBus\GameFrameX.EventBus.csproj", "{4F29E4F3-70F3-4C2A-B958-A60FF467626A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{D22B2A9A-73F7-46DF-8395-5874FD1447B6}"
 	ProjectSection(SolutionItems) = preProject
 		..\.github\workflows\publish-nuget.yml = ..\.github\workflows\publish-nuget.yml
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameFrameX.EventBus.RelationDbStorage", "GameFrameX.EventBus.RelationDbStorage\GameFrameX.EventBus.RelationDbStorage.csproj", "{37C51439-7225-4AA9-92B0-49E1E6FBCC6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameFrameX.EventBus.RelationDbStorage", "src\GameFrameX.EventBus.RelationDbStorage\GameFrameX.EventBus.RelationDbStorage.csproj", "{37C51439-7225-4AA9-92B0-49E1E6FBCC6D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameFrameX.EventBus.Extensions.EfCore", "GameFrameX.EventBus.Extensions.EfCore\GameFrameX.EventBus.Extensions.EfCore.csproj", "{973AFEAF-CEF4-4B62-AA9C-F0FA4375F4A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameFrameX.EventBus.Extensions.EfCore", "src\GameFrameX.EventBus.Extensions.EfCore\GameFrameX.EventBus.Extensions.EfCore.csproj", "{973AFEAF-CEF4-4B62-AA9C-F0FA4375F4A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".tests", ".tests", "{91A4AD7C-779D-4399-92E4-5323B9BD40FD}"
 EndProject
@@ -28,63 +28,63 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{0B18BA
 		tests\config.test.yaml = tests\config.test.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Dashboard", "GameFrameX.EventBus.Dashboard\GameFrameX.EventBus.Dashboard.csproj", "{D0D90F87-AC09-44BA-B637-E71627386572}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Dashboard", "src\GameFrameX.EventBus.Dashboard\GameFrameX.EventBus.Dashboard.csproj", "{D0D90F87-AC09-44BA-B637-E71627386572}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTestLogical", "tests\CommonTestLogical\CommonTestLogical.csproj", "{51F5A814-6042-4D64-8A29-F320D5474EE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTestLogical", "src\tests\CommonTestLogical\CommonTestLogical.csproj", "{51F5A814-6042-4D64-8A29-F320D5474EE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Kafka.MsgWithoutLosing.Tests", "tests\Shashlik.EventBus.Kafka.MsgWithoutLosing.Tests\Shashlik.EventBus.Kafka.MsgWithoutLosing.Tests.csproj", "{79C2FC0F-00CA-4A4C-AA36-A99D98FB5991}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Kafka.MsgWithoutLosing.Tests", "src\tests\Shashlik.EventBus.Kafka.MsgWithoutLosing.Tests\Shashlik.EventBus.Kafka.MsgWithoutLosing.Tests.csproj", "{79C2FC0F-00CA-4A4C-AA36-A99D98FB5991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Kafka.Tests", "tests\Shashlik.EventBus.Kafka.Tests\Shashlik.EventBus.Kafka.Tests.csproj", "{E2EA68A5-D253-4060-96AA-CA853C74C7E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Kafka.Tests", "src\tests\Shashlik.EventBus.Kafka.Tests\Shashlik.EventBus.Kafka.Tests.csproj", "{E2EA68A5-D253-4060-96AA-CA853C74C7E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MemoryStorage.Tests", "tests\Shashlik.EventBus.MemoryStorage.Tests\Shashlik.EventBus.MemoryStorage.Tests.csproj", "{7477DFCC-BDDC-498A-A5E7-34E876DE64C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MemoryStorage.Tests", "src\tests\Shashlik.EventBus.MemoryStorage.Tests\Shashlik.EventBus.MemoryStorage.Tests.csproj", "{7477DFCC-BDDC-498A-A5E7-34E876DE64C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MySql.Tests", "tests\Shashlik.EventBus.MySql.Tests\Shashlik.EventBus.MySql.Tests.csproj", "{9DD7AAC8-0F26-4D0A-9AE3-5AD5D8DB7B87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MySql.Tests", "src\tests\Shashlik.EventBus.MySql.Tests\Shashlik.EventBus.MySql.Tests.csproj", "{9DD7AAC8-0F26-4D0A-9AE3-5AD5D8DB7B87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.PostgreSQL.Tests", "tests\Shashlik.EventBus.PostgreSQL.Tests\Shashlik.EventBus.PostgreSQL.Tests.csproj", "{A485C9B6-2348-4A6C-9BEC-445BC0ED1CA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.PostgreSQL.Tests", "src\tests\Shashlik.EventBus.PostgreSQL.Tests\Shashlik.EventBus.PostgreSQL.Tests.csproj", "{A485C9B6-2348-4A6C-9BEC-445BC0ED1CA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.RabbitMQ.MsgWithoutLosing.Tests", "tests\Shashlik.EventBus.RabbitMQ.MsgWithoutLosing.Tests\Shashlik.EventBus.RabbitMQ.MsgWithoutLosing.Tests.csproj", "{2ECFEF64-F757-448E-BF02-0EECD746CDB4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.RabbitMQ.MsgWithoutLosing.Tests", "src\tests\Shashlik.EventBus.RabbitMQ.MsgWithoutLosing.Tests\Shashlik.EventBus.RabbitMQ.MsgWithoutLosing.Tests.csproj", "{2ECFEF64-F757-448E-BF02-0EECD746CDB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.RabbitMQ.Tests", "tests\Shashlik.EventBus.RabbitMQ.Tests\Shashlik.EventBus.RabbitMQ.Tests.csproj", "{A9EEBA66-1919-4858-8E76-F8657CAFD03E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.RabbitMQ.Tests", "src\tests\Shashlik.EventBus.RabbitMQ.Tests\Shashlik.EventBus.RabbitMQ.Tests.csproj", "{A9EEBA66-1919-4858-8E76-F8657CAFD03E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.SendMsgWithoutLosing.Tests", "tests\Shashlik.EventBus.SendMsgWithoutLosing.Tests\Shashlik.EventBus.SendMsgWithoutLosing.Tests.csproj", "{6E48906E-AE49-449B-916D-72F0CECFBAE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.SendMsgWithoutLosing.Tests", "src\tests\Shashlik.EventBus.SendMsgWithoutLosing.Tests\Shashlik.EventBus.SendMsgWithoutLosing.Tests.csproj", "{6E48906E-AE49-449B-916D-72F0CECFBAE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.SqlServer.Tests", "tests\Shashlik.EventBus.SqlServer.Tests\Shashlik.EventBus.SqlServer.Tests.csproj", "{714DE6CF-44DD-4E4B-ACEC-D3D902F0639E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.SqlServer.Tests", "src\tests\Shashlik.EventBus.SqlServer.Tests\Shashlik.EventBus.SqlServer.Tests.csproj", "{714DE6CF-44DD-4E4B-ACEC-D3D902F0639E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Tests", "tests\Shashlik.EventBus.Tests\Shashlik.EventBus.Tests.csproj", "{8BDE4317-F2FE-48FD-AE8C-27F469476FF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Tests", "src\tests\Shashlik.EventBus.Tests\Shashlik.EventBus.Tests.csproj", "{8BDE4317-F2FE-48FD-AE8C-27F469476FF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MongoDb.Tests", "tests\Shashlik.EventBus.MongoDb.Tests\Shashlik.EventBus.MongoDb.Tests.csproj", "{CD9B8B26-9CC3-4576-A574-7A59D1C69DFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.MongoDb.Tests", "src\tests\Shashlik.EventBus.MongoDb.Tests\Shashlik.EventBus.MongoDb.Tests.csproj", "{CD9B8B26-9CC3-4576-A574-7A59D1C69DFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Redis.MsgWithoutLosing.Tests", "tests\Shashlik.EventBus.Redis.MsgWithoutLosing.Tests\Shashlik.EventBus.Redis.MsgWithoutLosing.Tests.csproj", "{FEC12797-3C0C-465F-BD05-0EF0761925C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Redis.MsgWithoutLosing.Tests", "src\tests\Shashlik.EventBus.Redis.MsgWithoutLosing.Tests\Shashlik.EventBus.Redis.MsgWithoutLosing.Tests.csproj", "{FEC12797-3C0C-465F-BD05-0EF0761925C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Redis.Tests", "tests\Shashlik.EventBus.Redis.Tests\Shashlik.EventBus.Redis.Tests.csproj", "{2E0989DE-5914-45CA-9D74-DED626AF4C06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Redis.Tests", "src\tests\Shashlik.EventBus.Redis.Tests\Shashlik.EventBus.Redis.Tests.csproj", "{2E0989DE-5914-45CA-9D74-DED626AF4C06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Pulsar.MsgWithoutLosing.Tests", "tests\Shashlik.EventBus.Pulsar.MsgWithoutLosing.Tests\Shashlik.EventBus.Pulsar.MsgWithoutLosing.Tests.csproj", "{242D0F43-5E51-4DC6-8055-D8B8104FABC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Pulsar.MsgWithoutLosing.Tests", "src\tests\Shashlik.EventBus.Pulsar.MsgWithoutLosing.Tests\Shashlik.EventBus.Pulsar.MsgWithoutLosing.Tests.csproj", "{242D0F43-5E51-4DC6-8055-D8B8104FABC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Pulsar.Tests", "tests\Shashlik.EventBus.Pulsar.Tests\Shashlik.EventBus.Pulsar.Tests.csproj", "{1C7BC7E0-D206-4AD4-8814-307931D568A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Pulsar.Tests", "src\tests\Shashlik.EventBus.Pulsar.Tests\Shashlik.EventBus.Pulsar.Tests.csproj", "{1C7BC7E0-D206-4AD4-8814-307931D568A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Sqlite.Tests", "tests\Shashlik.EventBus.Sqlite.Tests\Shashlik.EventBus.Sqlite.Tests.csproj", "{18D4F748-BFB1-4B35-933E-089318134C67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shashlik.EventBus.Sqlite.Tests", "src\tests\Shashlik.EventBus.Sqlite.Tests\Shashlik.EventBus.Sqlite.Tests.csproj", "{18D4F748-BFB1-4B35-933E-089318134C67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.SqlServer", "GameFrameX.EventBus.Storage.SqlServer\GameFrameX.EventBus.Storage.SqlServer.csproj", "{314050D1-8BE3-4C06-9774-073CA819B944}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.SqlServer", "src\GameFrameX.EventBus.Storage.SqlServer\GameFrameX.EventBus.Storage.SqlServer.csproj", "{314050D1-8BE3-4C06-9774-073CA819B944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.Sqlite", "GameFrameX.EventBus.Storage.Sqlite\GameFrameX.EventBus.Storage.Sqlite.csproj", "{210C511A-9022-42C7-9B8B-44447E1ABF9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.Sqlite", "src\GameFrameX.EventBus.Storage.Sqlite\GameFrameX.EventBus.Storage.Sqlite.csproj", "{210C511A-9022-42C7-9B8B-44447E1ABF9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.Redis", "GameFrameX.EventBus.Storage.Redis\GameFrameX.EventBus.Storage.Redis.csproj", "{91EE2416-D64C-4A3A-B878-2B53FBE1DF94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.Redis", "src\GameFrameX.EventBus.Storage.Redis\GameFrameX.EventBus.Storage.Redis.csproj", "{91EE2416-D64C-4A3A-B878-2B53FBE1DF94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.RabbitMQ", "GameFrameX.EventBus.Storage.RabbitMQ\GameFrameX.EventBus.Storage.RabbitMQ.csproj", "{E58392C6-0315-4334-9BE8-425052AF1DAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.RabbitMQ", "src\GameFrameX.EventBus.Storage.RabbitMQ\GameFrameX.EventBus.Storage.RabbitMQ.csproj", "{E58392C6-0315-4334-9BE8-425052AF1DAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.Pulsar", "GameFrameX.EventBus.Storage.Pulsar\GameFrameX.EventBus.Storage.Pulsar.csproj", "{C35A3DE4-2602-435F-9750-EFCC0B34754D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.Pulsar", "src\GameFrameX.EventBus.Storage.Pulsar\GameFrameX.EventBus.Storage.Pulsar.csproj", "{C35A3DE4-2602-435F-9750-EFCC0B34754D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.PostgreSQL", "GameFrameX.EventBus.Storage.PostgreSQL\GameFrameX.EventBus.Storage.PostgreSQL.csproj", "{6DF90DBE-2EB3-435A-AEE4-E3B511D29F42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.PostgreSQL", "src\GameFrameX.EventBus.Storage.PostgreSQL\GameFrameX.EventBus.Storage.PostgreSQL.csproj", "{6DF90DBE-2EB3-435A-AEE4-E3B511D29F42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.MySql", "GameFrameX.EventBus.Storage.MySql\GameFrameX.EventBus.Storage.MySql.csproj", "{92D685AF-A365-4F11-99CB-F810DC9F9570}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.MySql", "src\GameFrameX.EventBus.Storage.MySql\GameFrameX.EventBus.Storage.MySql.csproj", "{92D685AF-A365-4F11-99CB-F810DC9F9570}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.MongoDb", "GameFrameX.EventBus.Storage.MongoDb\GameFrameX.EventBus.Storage.MongoDb.csproj", "{D1B5733B-7002-4FAF-84E4-E2902AAFCF26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.MongoDb", "src\GameFrameX.EventBus.Storage.MongoDb\GameFrameX.EventBus.Storage.MongoDb.csproj", "{D1B5733B-7002-4FAF-84E4-E2902AAFCF26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.MemoryStorage", "GameFrameX.EventBus.Storage.MemoryStorage\GameFrameX.EventBus.Storage.MemoryStorage.csproj", "{945951F2-5CBA-4508-AD3E-B2838570AD3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.MemoryStorage", "src\GameFrameX.EventBus.Storage.MemoryStorage\GameFrameX.EventBus.Storage.MemoryStorage.csproj", "{945951F2-5CBA-4508-AD3E-B2838570AD3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.MemoryQueue", "GameFrameX.EventBus.Storage.MemoryQueue\GameFrameX.EventBus.Storage.MemoryQueue.csproj", "{8BA8FEAA-45F9-4DD6-919F-9DC53C6167F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.MemoryQueue", "src\GameFrameX.EventBus.Storage.MemoryQueue\GameFrameX.EventBus.Storage.MemoryQueue.csproj", "{8BA8FEAA-45F9-4DD6-919F-9DC53C6167F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.Kafka", "GameFrameX.EventBus.Storage.Kafka\GameFrameX.EventBus.Storage.Kafka.csproj", "{B6691ECA-4D2A-4EBB-8ACD-AB4B49FB4CAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFrameX.EventBus.Storage.Kafka", "src\GameFrameX.EventBus.Storage.Kafka\GameFrameX.EventBus.Storage.Kafka.csproj", "{B6691ECA-4D2A-4EBB-8ACD-AB4B49FB4CAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
